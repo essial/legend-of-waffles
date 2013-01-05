@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="256" height="256" tilewidth="8" tileheight="8">
+ <properties>
+  <property name="Title" value="Fancy Shanty"/>
+ </properties>
+ <tileset firstgid="1" name="tileset" tilewidth="8" tileheight="8">
+  <image source="tileset.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Tiles" width="256" height="256">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3dbUvjQBiG0QjqF1+h//+/quBAiJMwmZl0Ep9z4GJ3RYoKt2nTbDtNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABArdt3r7NuY78coMJbQ8v9t9zW29HfKPDH8jheW+vtuP8A93fU/j8zn7P82Odk/zCS4z/EtdztQ0Nr2y75XPuH++t1/O9x/wG4rzPs/2Gq2//zb0Cdo/a/9Xig9fj/nAnY72d3ucfmJY/15/9eu51e+19u3P6h3db5v5LzefP9Hvn4P7fzl6rvGEhGP/+Xfo9sXRO4dn/f/qHNGc7/ldwnSFu3f+jnTPtP1wN+TOv7f8l87IdzALDfmfafep/27999Adiv5/V/R5Q8Lf7c+nuJR0nZ/8c/+muSdJ/sX4qb/Utxs38pVluv4zXiHN/on4cUqdLn/Hpc01vyOaN/HlKk7F+K2+jre+xfGtfozdu/NK7Rm7d/aVy9Xtdzq9Lbsn/pvNWeA7wV3ob9S+etZv/p9cBKbsP+pfPm+C/Frff+c68bOPp7lJSvx3W9jv9S3Oxfipv9S3Gzfylu8/cGsn8pVo7/UtzsX4qb/Utxs38pbq7/k+Lm+C/Fzf6luNm/FLd0/c/aawV4bwDp/9byOuKjv3ZJbdm/FDf7l+K2fP7f438pTs7/S3Gzfylu9i/Fzf6luOX2n87v2b/0v3P8l+Jm/1Lc5q//uXz+3/6la9fyHuJ73kdI0vnae03v1u8D1wBL16r22n77l66f/Utxq338v/d9hCVdL8//SXGzfylu9i/Fzf6luDm/J0mSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEm6al+D4T5RAAAEAA==
+  </data>
+ </layer>
+ <objectgroup name="Data" width="256" height="256">
+  <object type="Collision Region" x="1584" y="1152" width="288" height="8"/>
+  <object type="Collision Region" x="1864" y="1120" width="8" height="40"/>
+  <object type="Collision Region" x="1808" y="1120" width="64" height="8"/>
+  <object type="Collision Region" x="1824" y="1040" width="8" height="88"/>
+  <object type="Collision Region" x="1696" y="1040" width="136" height="8"/>
+  <object type="Collision Region" x="1696" y="1032" width="8" height="48"/>
+  <object type="Collision Region" x="1816" y="1088" width="16" height="8"/>
+  <object type="Collision Region" x="1752" y="1072" width="40" height="8"/>
+  <object type="Collision Region" x="1552" y="1104" width="184" height="8"/>
+  <object type="Collision Region" x="1696" y="1104" width="8" height="24"/>
+  <object type="Coin Box" gid="8" x="1712" y="1080"/>
+  <object type="Warp Zone" x="1848" y="1136" width="8" height="16">
+   <properties>
+    <property name="Method" value="Action"/>
+    <property name="Target" value="AwesomeVillage"/>
+    <property name="TargetX" value="86"/>
+    <property name="TargetY" value="135"/>
+   </properties>
+  </object>
+  <object type="Collision Region" x="1584" y="1072" width="120" height="8"/>
+  <object type="Collision Region" x="1552" y="1040" width="152" height="8"/>
+  <object type="Collision Region" x="1664" y="1032" width="8" height="16"/>
+  <object type="Collision Region" x="1552" y="1040" width="8" height="160"/>
+  <object type="Collision Region" x="1528" y="1192" width="32" height="8"/>
+  <object type="Collision Region" x="1584" y="1152" width="8" height="48"/>
+  <object type="Collision Region" x="1584" y="1192" width="232" height="8"/>
+  <object type="Collision Region" x="1528" y="1240" width="96" height="8"/>
+  <object type="Collision Region" x="1584" y="1112" width="24" height="8"/>
+  <object type="Vertical Cannon" gid="17" x="1664" y="1112"/>
+  <object type="Vertical Cannon" gid="17" x="1592" y="1112"/>
+  <object type="Collision Region" x="1656" y="1112" width="24" height="8"/>
+  <object type="Collision Region" x="1728" y="1096" width="8" height="16"/>
+  <object type="Collision Region" x="1616" y="1240" width="8" height="48"/>
+  <object type="Collision Region" x="1528" y="1192" width="8" height="56"/>
+  <object type="Collision Region" x="1608" y="1192" width="8" height="24"/>
+  <object type="Collision Region" x="1736" y="1192" width="8" height="24"/>
+  <object type="Collision Region" x="1616" y="1280" width="120" height="8"/>
+  <object type="Collision Region" x="1728" y="1240" width="8" height="48"/>
+  <object type="Collision Region" x="1728" y="1240" width="48" height="8"/>
+  <object type="Collision Region" x="1752" y="1240" width="8" height="256"/>
+  <object type="Collision Region" x="1808" y="1192" width="8" height="200"/>
+  <object type="Collision Region" x="1808" y="1384" width="64" height="8"/>
+  <object type="Collision Region" x="1864" y="1384" width="8" height="40"/>
+  <object type="Collision Region" x="1808" y="1416" width="64" height="8"/>
+  <object type="Collision Region" x="1808" y="1416" width="8" height="80"/>
+  <object type="collision Region" x="1808" y="1488" width="72" height="8"/>
+  <object type="Collision Region" x="1872" y="1488" width="8" height="40"/>
+  <object type="Collision Region" x="1800" y="1520" width="80" height="8"/>
+  <object type="Collision Region" x="1808" y="1520" width="8" height="48"/>
+  <object type="Collision Region" x="1752" y="1560" width="64" height="8"/>
+  <object type="Collision Region" x="1752" y="1520" width="8" height="48"/>
+  <object type="Collision Region" x="1688" y="1520" width="72" height="8"/>
+  <object type="Collision Region" x="1688" y="1488" width="72" height="8"/>
+  <object type="Collision Region" x="1688" y="1488" width="8" height="40"/>
+  <object type="Collision Region" x="1752" y="1480" width="32" height="8"/>
+  <object type="Collision Region" x="1784" y="1496" width="8" height="8"/>
+  <object type="Collision Region" x="1792" y="1456" width="24" height="8"/>
+  <object type="Collision Region" x="1776" y="1416" width="8" height="8"/>
+  <object type="Collision Region" x="1760" y="1384" width="8" height="8"/>
+  <object type="Collision Region" x="1776" y="1352" width="16" height="8"/>
+  <object type="Collision Region" x="1752" y="1312" width="24" height="8"/>
+  <object type="Collision Region" x="1776" y="1272" width="16" height="8"/>
+  <object type="Collision Region" x="1720" y="1256" width="16" height="8"/>
+  <object type="Enemy Crab" gid="38" x="1648" y="1280"/>
+  <object type="Enemy Crab" gid="38" x="1704" y="1280"/>
+  <object type="Enemy Crab" gid="38" x="1776" y="1560"/>
+  <object type="Coin Box" gid="8" x="1552" y="1224"/>
+  <object type="Coin Box" gid="8" x="1648" y="1256"/>
+  <object type="Coin Box" gid="8" x="1672" y="1256"/>
+  <object type="Coin Box" gid="8" x="1696" y="1256"/>
+  <object type="Coin Box" gid="8" x="1800" y="1128"/>
+  <object type="Coin Box" gid="8" x="1768" y="1128"/>
+ </objectgroup>
+</map>

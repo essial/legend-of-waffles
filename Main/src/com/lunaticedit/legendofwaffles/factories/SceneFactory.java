@@ -2,7 +2,7 @@ package com.lunaticedit.legendofwaffles.factories;
 
 import com.lunaticedit.legendofwaffles.contracts.Scene;
 import com.lunaticedit.legendofwaffles.enums.SceneType;
-import com.lunaticedit.legendofwaffles.implementations.repository.MainMenu;
+import com.lunaticedit.legendofwaffles.implementations.scene.MainMenu;
 
 public final class SceneFactory {
     public Scene generateScene(SceneType sceneType) throws Exception {

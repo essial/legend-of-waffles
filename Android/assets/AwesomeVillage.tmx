@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="256" height="256" tilewidth="8" tileheight="8">
+ <properties>
+  <property name="Title" value="Awesome Village"/>
+ </properties>
+ <tileset firstgid="1" name="tileset" tilewidth="8" tileheight="8">
+  <image source="tileset.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Tiles" width="256" height="256">
+  <data encoding="base64" compression="gzip">
+   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
+  </data>
+ </layer>
+ <objectgroup name="Data" width="256" height="256">
+  <object type="Collision Region" x="296" y="1096" width="1448" height="8"/>
+  <object type="Collision Region" x="1848" y="1096" width="200" height="8"/>
+  <object type="Collision Region" x="136" y="1096" width="144" height="8"/>
+  <object type="Collision Region" x="200" y="1088" width="24" height="8"/>
+  <object type="Collision Region" x="208" y="1080" width="8" height="8"/>
+  <object type="Collision Region" x="408" y="1088" width="80" height="8"/>
+  <object type="Collision Region" x="416" y="1080" width="64" height="8"/>
+  <object type="Collision Region" x="424" y="1072" width="48" height="8"/>
+  <object type="Coin Box" gid="8" x="736" y="1072"/>
+  <object type="Coin Box" gid="8" x="536" y="1072"/>
+  <object type="Warp Zone" x="688" y="1080" width="8" height="16">
+   <properties>
+    <property name="Method" value="Action"/>
+    <property name="Target" value="FancyShanty"/>
+    <property name="TargetX" value="231"/>
+    <property name="TargetY" value="142"/>
+   </properties>
+  </object>
+  <object type="Vertical Cannon" gid="17" x="1616" y="1096"/>
+  <object type="Vertical Cannon" gid="17" x="1560" y="1096"/>
+  <object type="Vertical Cannon" gid="17" x="1424" y="1096"/>
+  <object type="Vertical Cannon" gid="17" x="1472" y="1096"/>
+  <object type="Vertical Cannon" gid="17" x="1520" y="1096"/>
+  <object type="Vertical Cannon" gid="17" x="1592" y="1096"/>
+  <object type="Enemy Crab" gid="38" x="1168" y="1096"/>
+  <object type="Enemy Crab" gid="38" x="1224" y="1096"/>
+  <object type="Enemy Crab" gid="38" x="1096" y="1096"/>
+  <object type="Enemy Crab" gid="38" x="1024" y="1096"/>
+  <object type="Collision Region" x="1000" y="1080" width="8" height="24"/>
+  <object type="Collision Region" x="1056" y="1080" width="8" height="24"/>
+  <object type="Collision Region" x="1136" y="1072" width="8" height="32"/>
+  <object type="Collision Region" x="1120" y="1080" width="16" height="24"/>
+  <object type="Collision Region" x="1112" y="1088" width="8" height="16"/>
+  <object type="Collision Region" x="1176" y="1064" width="8" height="8"/>
+  <object type="Collision Region" x="1208" y="1064" width="8" height="8"/>
+  <object type="Collision Region" x="1248" y="1072" width="8" height="32"/>
+  <object type="Collision Region" x="1256" y="1080" width="16" height="24"/>
+  <object type="Collision Region" x="1272" y="1088" width="8" height="16"/>
+  <object type="Coin Box" gid="8" x="1152" y="1072"/>
+  <object type="Coin Box" gid="8" x="1232" y="1072"/>
+  <object type="Coin Box" gid="8" x="904" y="1072"/>
+  <object type="Coin Box" gid="8" x="936" y="1072"/>
+  <object type="Coin Box" gid="8" x="968" y="1072"/>
+  <object type="Collision Region" x="1240" y="1064" width="8" height="40"/>
+  <object type="Collision Region" x="1144" y="1064" width="8" height="40"/>
+  <object type="Enemy Crab" gid="38" x="928" y="1096"/>
+  <object type="Enemy Crab" gid="38" x="616" y="1096"/>
+  <object type="Enemy Crab" gid="38" x="328" y="1096"/>
+  <object type="Enemy Crab" gid="38" x="240" y="1096"/>
+  <object type="Collision Region" x="272" y="1096" width="8" height="160"/>
+  <object type="Collision Region" x="296" y="1096" width="8" height="160"/>
+  <object type="Collision Region" x="296" y="1248" width="128" height="8"/>
+  <object type="Collision Region" x="416" y="1248" width="8" height="48"/>
+  <object type="Collision Region" x="232" y="1288" width="192" height="8"/>
+  <object type="Collision Region" x="168" y="1248" width="112" height="8"/>
+  <object type="Collision Region" x="232" y="1288" width="8" height="144"/>
+  <object type="Collision Region" x="168" y="1248" width="8" height="200"/>
+  <object type="Collision Region" x="232" y="1424" width="72" height="8"/>
+  <object type="Collision Region" x="296" y="1424" width="8" height="56"/>
+  <object type="Collision Region" x="0" y="1472" width="304" height="8"/>
+  <object type="Collision Region" x="0" y="1440" width="176" height="8"/>
+  <object type="Collision Region" x="0" y="1440" width="8" height="40"/>
+  <object type="Vertical Platform" gid="84" x="280" y="1104">
+   <properties>
+    <property name="PlatformHeight" value="24"/>
+    <property name="PlatformWidth" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

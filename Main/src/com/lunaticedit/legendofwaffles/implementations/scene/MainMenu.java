@@ -1,4 +1,4 @@
-package com.lunaticedit.legendofwaffles.implementations.repository;
+package com.lunaticedit.legendofwaffles.implementations.scene;
 
 import com.lunaticedit.legendofwaffles.contracts.Scene;
 

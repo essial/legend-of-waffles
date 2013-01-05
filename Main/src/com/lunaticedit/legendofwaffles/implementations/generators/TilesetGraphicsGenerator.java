@@ -1,4 +1,4 @@
-package com.lunaticedit.legendofwaffles.implementations.repository;
+package com.lunaticedit.legendofwaffles.implementations.generators;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.lunaticedit.legendofwaffles.contracts.GraphicsGenerator;
@@ -19,7 +19,7 @@ public class TilesetGraphicsGenerator implements GraphicsGenerator {
 
         // Create a fast lookup table for tile offsets by tile number
         if (_tilePoints != null) {
-            final int tilesPerRow = _texture.getWidth() / Constants.TileSize;
+            final int tilesPerRow = getTilesPerRow();
             final int tilesPerCol = _texture.getHeight() / Constants.TileSize;
             _tilePoints = new Point[tilesPerRow * tilesPerCol];
             for (int i = 0; i < (tilesPerRow * tilesPerCol); i++) {
@@ -74,11 +74,11 @@ public class TilesetGraphicsGenerator implements GraphicsGenerator {
 
     @Override
     public void drawText(final int x, final int y, final String text) {
-
+        // TODO: Implement
     }
 
     @Override
-    public void setOffset(final Point offset) {
-
+    public int getTilesPerRow() {
+        return _texture.getWidth() / Constants.TileSize;
     }
 }
