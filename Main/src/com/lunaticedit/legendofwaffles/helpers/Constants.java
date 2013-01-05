@@ -48,4 +48,6 @@ public class Constants {
      * The aspect ratio the game is displayed at. Used for scaling.
      */
     public static final float AspectRatio = (float)GameWidth/(float)GameHeight;
+
+    public static final int FontStartTile = 960;
 }

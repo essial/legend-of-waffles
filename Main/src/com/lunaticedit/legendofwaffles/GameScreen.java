@@ -15,6 +15,7 @@ import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.factories.SceneFactory;
 import com.lunaticedit.legendofwaffles.factories.SpriteBatchFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
+import com.lunaticedit.legendofwaffles.implementations.Input;
 
 public class GameScreen implements Screen, InputProcessor {
     private Rectangle _viewport;
@@ -140,11 +141,13 @@ public class GameScreen implements Screen, InputProcessor {
 
     @Override
     public boolean keyDown(final int keycode) {
-        return false;
+        Input.getInstance().setKeyState(keycode, true);
+        return true;
     }
 
     @Override
     public boolean keyUp(final int keycode) {
+        Input.getInstance().setKeyState(keycode, false);
         return false;
     }
 

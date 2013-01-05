@@ -18,7 +18,7 @@ public class TilesetGraphicsGenerator implements GraphicsGenerator {
         }
 
         // Create a fast lookup table for tile offsets by tile number
-        if (_tilePoints != null) {
+        if (_tilePoints == null) {
             final int tilesPerRow = getTilesPerRow();
             final int tilesPerCol = _texture.getHeight() / Constants.TileSize;
             _tilePoints = new Point[tilesPerRow * tilesPerCol];
@@ -74,7 +74,9 @@ public class TilesetGraphicsGenerator implements GraphicsGenerator {
 
     @Override
     public void drawText(final int x, final int y, final String text) {
-        // TODO: Implement
+        for (int i = 0; i < text.length(); i++) {
+            drawTile(x + (i * Constants.TileSize), y, Constants.FontStartTile + (text.charAt(i) - '!'));
+        }
     }
 
     @Override
