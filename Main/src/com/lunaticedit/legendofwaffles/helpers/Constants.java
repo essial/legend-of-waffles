@@ -50,4 +50,5 @@ public class Constants {
     public static final float AspectRatio = (float)GameWidth/(float)GameHeight;
 
     public static final int FontStartTile = 960;
+    public static String MainMenuSong = "superchip.ogg";
 }

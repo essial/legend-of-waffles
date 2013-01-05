@@ -8,10 +8,10 @@ public final class RepositoryFactory {
 
     public static Repository _liveRepository;
 
-    private Repository getRepository() throws Exception {
+    private Repository getRepository() throws UnsupportedOperationException {
         switch (Constants.RepositoryType) {
             case Test:
-                throw new Exception(
+                throw new UnsupportedOperationException(
                         "The Test repository has not been implemented!"
                 );
             case Live:
@@ -19,11 +19,11 @@ public final class RepositoryFactory {
                 { _liveRepository = new LiveRepository(); }
                 return _liveRepository;
         }
-        throw new Exception("Unknown repository type supplied!");
+        throw new UnsupportedOperationException("Unknown repository type supplied!");
     }
 
     public Repository generate()
-            throws Exception {
+            throws UnsupportedOperationException {
         return getRepository();
     }
 }

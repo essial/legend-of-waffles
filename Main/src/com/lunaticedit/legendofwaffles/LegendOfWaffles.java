@@ -1,6 +1,7 @@
 package com.lunaticedit.legendofwaffles;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 
 public class LegendOfWaffles extends Game {
     @Override
@@ -8,8 +9,7 @@ public class LegendOfWaffles extends Game {
         try {
             this.setScreen(new GameScreen());
         } catch (Exception e) {
-            // TODO: Proper error logging
-            e.printStackTrace();
+            Gdx.app.log("Error", e.getMessage(), e);
         }
     }
 }

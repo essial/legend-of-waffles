@@ -21,9 +21,7 @@ public class GameScreen implements Screen, InputProcessor {
     private Rectangle _viewport;
     private final Camera _camera;
 
-    public GameScreen() throws Exception {
-        super();
-
+    public GameScreen() throws UnsupportedOperationException {
         // Bootstrap the repository and scene factory
         (new RepositoryConsumer(new RepositoryFactory(), new SceneFactory())).bootstrap();
 
@@ -76,7 +74,7 @@ public class GameScreen implements Screen, InputProcessor {
 
         // Render the current screen (into the sprite batch)
         try { (new RenderConsumer(new RepositoryFactory())).render(); }
-        catch (Exception e) { e.printStackTrace(); } // TODO: Proper exception handling
+        catch (Exception e) { Gdx.app.log("Error", e.getMessage(), e); }
 
         // Close the sprite batch now that we have finished rendering.
         (new SpriteBatchFactory())
@@ -85,7 +83,7 @@ public class GameScreen implements Screen, InputProcessor {
 
         // Process updates
         try { (new ProcessableConsumer(new RepositoryFactory())).process(); }
-        catch (Exception e) { e.printStackTrace(); } // TODO: Proper exception handling
+        catch (Exception e) { Gdx.app.log("Error", e.getMessage(), e); }
 
     }
 

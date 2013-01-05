@@ -2,21 +2,25 @@ package com.lunaticedit.legendofwaffles.implementations.scene;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.lunaticedit.legendofwaffles.contracts.Scene;
 import com.lunaticedit.legendofwaffles.factories.SpriteBatchFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.implementations.Input;
+import com.lunaticedit.legendofwaffles.implementations.MusicPlayer;
 import com.lunaticedit.legendofwaffles.implementations.generators.TilesetGraphicsGenerator;
-import com.badlogic.gdx.Input.*;
 
 public final class MainMenu implements Scene {
     private final Texture _texture;
-    private final int _menuSelection = 0;
+    private int _menuSelection = 0;
 
     public MainMenu() {
         _texture = new Texture(Constants.MainMenuBackgroundFile);
+
+        MusicPlayer.getInstance().stopSong();
+        MusicPlayer.getInstance().playSong(Constants.MainMenuSong);
     }
 
     @Override
@@ -49,21 +53,39 @@ public final class MainMenu implements Scene {
         } else if (Input.getInstance().getKeyState(Keys.DPAD_DOWN)) {
             Input.getInstance().setKeyState(com.badlogic.gdx.Input.Keys.DPAD_DOWN, false);
             moveSelectionDown();
-        } else if (Input.getInstance().getKeyState(Keys.F11)) {
-            Input.getInstance().setKeyState(Keys.DPAD_UP, false);
-            moveSelectionUp();
+        } else if (Input.getInstance().getKeyState(Keys.ENTER) ||
+                Input.getInstance().getKeyState(Keys.BUTTON_A)) {
+            Input.getInstance().setKeyState(Keys.ENTER, false);
+            Input.getInstance().setKeyState(Keys.BUTTON_A, false);
+            activateMenuOption();
         }
     }
 
     private void moveSelectionUp() {
-
+        if (--_menuSelection < 0)
+        { _menuSelection = 3; }
     }
 
     private void moveSelectionDown() {
-
+        if (++_menuSelection > 3)
+        { _menuSelection = 0; }
     }
 
     private void activateMenuOption() {
-
+        switch (_menuSelection) {
+            case 0: {
+                // Start new game
+            } break;
+            case 1: {
+                // Continue existing game
+            } break;
+            case 2: {
+                // Configure
+            } break;
+            case 3: {
+                // Quit
+                Gdx.app.exit();
+            } break;
+        }
     }
 }
