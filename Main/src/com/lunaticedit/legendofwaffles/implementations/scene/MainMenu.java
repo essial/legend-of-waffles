@@ -15,14 +15,8 @@ public final class MainMenu implements Scene {
     public void render() {
         (new SpriteBatchFactory())
                 .generate()
-                .draw(
-                    _texture,
-                    (-(Constants.GameWidth / 2)) +
-                            ((Constants.GameWidth - _texture.getWidth()) / 2),
-                    (-(Constants.GameHeight / 2)) +
-                            (((Constants.GameHeight - _texture.getHeight()) / 2)) +
-                            Constants.VerticalReduce
-                );
+                .draw(_texture, -128f, -110f);
+
     }
 
     @Override
