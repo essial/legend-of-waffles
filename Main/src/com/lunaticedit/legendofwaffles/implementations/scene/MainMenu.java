@@ -31,17 +31,18 @@ public final class MainMenu implements Scene {
         s.draw(_texture, -128f, -110f);
 
         // Render the main menu options.
-        g.drawText(110, 90,  "NEW GAME");
-        g.drawText(110, 115, "CONTINUE");
-        g.drawText(110, 140, " CONFIG ");
-        g.drawText(110, 165, "  QUIT  ");
+        final int centerX = (Constants.GameWidth / 2);
+        g.drawText(centerX - ((8 * 8) / 2), 90,  "NEW GAME");
+        g.drawText(centerX - ((8 * 8) / 2), 115, "CONTINUE");
+        g.drawText(centerX - ((8 * 8) / 2), 140, " CONFIG ");
+        g.drawText(centerX - ((8 * 8) / 2), 165, "  QUIT  ");
 
         // Render the menu selector if not on a touch screen
         if (Gdx.app.getType() == Application.ApplicationType.Android) {
 
         } else {
-            g.drawTile(94, 90 + (_menuSelection * 25), 1);
-            g.drawTile(180, 90 + (_menuSelection * 25), 1);
+            g.drawTile(centerX - ((8 * 10) / 2), 90 + (_menuSelection * 25), 1);
+            g.drawTile(centerX + ((8 * 8) / 2), 90 + (_menuSelection * 25), 1);
         }
     }
 
