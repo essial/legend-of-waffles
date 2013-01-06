@@ -6,6 +6,9 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.lunaticedit.legendofwaffles.contracts.Scene;
+import com.lunaticedit.legendofwaffles.enums.SceneType;
+import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
+import com.lunaticedit.legendofwaffles.factories.SceneFactory;
 import com.lunaticedit.legendofwaffles.factories.SpriteBatchFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.implementations.Input;
@@ -76,6 +79,10 @@ public final class MainMenu implements Scene {
         switch (_menuSelection) {
             case 0: {
                 // Start new game
+                (new RepositoryFactory())
+                        .generate()
+                        .setScene(new SceneFactory()
+                                .generateScene(SceneType.Game));
             } break;
             case 1: {
                 // Continue existing game
