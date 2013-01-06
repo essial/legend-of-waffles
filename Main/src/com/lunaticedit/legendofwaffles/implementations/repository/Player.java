@@ -1,23 +1,17 @@
-package com.lunaticedit.legendofwaffles.implementations;
+package com.lunaticedit.legendofwaffles.implementations.repository;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.lunaticedit.legendofwaffles.contracts.Processable;
+import com.lunaticedit.legendofwaffles.contracts.Renderable;
+import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
+import com.lunaticedit.legendofwaffles.helpers.Dimension;
+import com.lunaticedit.legendofwaffles.helpers.Point;
 import com.lunaticedit.legendofwaffles.physics.Physics;
 
-public class Player {
-    private static Player _player;
+public class Player implements Renderable, Processable {
     private Body _body;
-
-    private Player() {
-
-    }
-
-    public static Player getInstance() {
-        if (_player == null)
-        { _player = new Player(); }
-        return _player;
-    }
 
     /**
      * Gets the X position of the player, in pixels.
@@ -57,4 +51,36 @@ public class Player {
         _body.setLinearVelocity(new Vector2(0.0f, 0.0f));
     }
 
+
+    public void attach() {
+        (new RepositoryFactory())
+                .generate()
+                .getProcessables()
+                .add(this);
+
+        (new RepositoryFactory())
+                .generate()
+                .getRenderables()
+                .add(this);
+    }
+
+    @Override
+    public boolean getVisible() {
+        return true;
+    }
+
+    @Override
+    public Dimension getTileSize() {
+        return new Dimension(1, 2);
+    }
+
+    @Override
+    public Point getTileOrigin() {
+        return new Point(0, 1);
+    }
+
+    @Override
+    public void process() {
+        // TODO: Processing logic
+    }
 }

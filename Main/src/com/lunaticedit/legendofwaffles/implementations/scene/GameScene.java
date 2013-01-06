@@ -42,6 +42,13 @@ public final class GameScene implements Scene {
         // this check here actually loads the stage.
         if (_loading) {
             loadStage();
+
+            // Attach the player's activities to the repository
+            (new RepositoryFactory())
+                    .generate()
+                    .getPlayer()
+                    .attach();
+
             _loading = false;
             return;
         }
@@ -79,7 +86,8 @@ public final class GameScene implements Scene {
         final int tilesPerRow = stage.getMapWidth();
         final int[] tileData = stage.getTileData();
 
-        //final Graphics g = bufferedImage.getGraphics();
+
+
         for (int y = -1; y < (Constants.GameHeight / Constants.TileSize) + 1; y++) {
             for (int x = -1; x < (Constants.GameWidth / Constants.TileSize) + 1; x++) {
 
@@ -92,7 +100,11 @@ public final class GameScene implements Scene {
                 { continue; }
 
                 (new TilesetGraphicsGenerator())
-                        .drawTile(x * Constants.TileSize, y * Constants.TileSize, tileNum);
+                        .drawTile(
+                                (x * Constants.TileSize) - pixelOffX,
+                                (y * Constants.TileSize) - pixelOffY,
+                                tileNum
+                        );
             }
         }
 

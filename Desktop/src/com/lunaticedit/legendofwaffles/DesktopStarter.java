@@ -11,6 +11,7 @@ public class DesktopStarter {
         cfg.useGL20 = true;
         cfg.width = Constants.GameWidth * 2;
         cfg.height = Constants.GameHeight * 2;
+        cfg.resizable = false;
         new LwjglApplication(new LegendOfWaffles(), cfg);
     }
 }

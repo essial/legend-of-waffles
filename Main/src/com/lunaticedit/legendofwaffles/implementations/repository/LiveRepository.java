@@ -11,11 +11,13 @@ public final class LiveRepository implements Repository {
     // Data Store
     private final LinkedList<Renderable> _renderables;
     private final LinkedList<Processable> _processables;
-    private  Scene _scene;
+    private Scene _scene;
+    private Player _player;
 
     public LiveRepository() {
         _renderables = new LinkedList<Renderable>();
         _processables = new LinkedList<Processable>();
+        _player = new Player();
     }
 
     @Override
@@ -36,6 +38,11 @@ public final class LiveRepository implements Repository {
     @Override
     public void setScene(final Scene scene) {
         _scene = scene;
+    }
+
+    @Override
+    public Player getPlayer() {
+        return _player;
     }
 
 

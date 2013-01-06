@@ -13,7 +13,7 @@ import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.helpers.Dimension;
 import com.lunaticedit.legendofwaffles.helpers.Point;
 import com.lunaticedit.legendofwaffles.implementations.MusicPlayer;
-import com.lunaticedit.legendofwaffles.implementations.Player;
+import com.lunaticedit.legendofwaffles.implementations.repository.Player;
 import com.lunaticedit.legendofwaffles.physics.HitHandler;
 import com.lunaticedit.legendofwaffles.physics.HitWatcher;
 import com.lunaticedit.legendofwaffles.physics.Physics;
@@ -92,10 +92,15 @@ public class ItemBox implements StageObject, Renderable, Processable, HitHandler
         { return; }
 
         _lastHit = System.currentTimeMillis();
-        if (!Player.getInstance().involved(body1, body2))
+
+        final Player player = (new RepositoryFactory())
+                .generate()
+                .getPlayer();
+
+        if (!player.involved(body1, body2))
         { return; }
 
-        if (Player.getInstance().getY() < _posY)
+        if (player.getY() < _posY)
         { return; }
 
         MusicPlayer.playSound(SoundEffect.BoxHit);

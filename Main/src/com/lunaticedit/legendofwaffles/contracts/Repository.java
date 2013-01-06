@@ -1,5 +1,7 @@
 package com.lunaticedit.legendofwaffles.contracts;
 
+import com.lunaticedit.legendofwaffles.implementations.repository.Player;
+
 import java.util.LinkedList;
 
 /**
@@ -27,4 +29,6 @@ public interface Repository {
      * in the game (main menu, game over, etc).
      */
     public void setScene(final Scene scene);
+
+    public Player getPlayer();
 }

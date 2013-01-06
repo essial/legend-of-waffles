@@ -8,7 +8,7 @@ import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.factories.StageFactory;
 import com.lunaticedit.legendofwaffles.factories.StageObjectFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
-import com.lunaticedit.legendofwaffles.implementations.Player;
+import com.lunaticedit.legendofwaffles.implementations.repository.Player;
 import com.lunaticedit.legendofwaffles.physics.Physics;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -109,9 +109,13 @@ public class StageServices {
                 .getRenderables()
                 .clear();
 
+        final Player player = (new RepositoryFactory())
+                .generate()
+                .getPlayer();
+
         if (currentStage.equals("")) {
-            Player.getInstance().initializePhysics();
-            Player.getInstance().setPosition(
+            player.initializePhysics();
+            player.setPosition(
                     (_stageFactory
                             .generate()
                             .getPlayerStartX() * Constants.TileSize),
@@ -134,6 +138,8 @@ public class StageServices {
         } catch (SAXException e) {
             Gdx.app.log("Error", e.getMessage(), e);
         }
+
+
     }
 
     public void loadStageXML(final String fileName)

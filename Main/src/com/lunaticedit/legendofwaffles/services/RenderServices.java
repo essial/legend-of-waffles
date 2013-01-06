@@ -6,7 +6,7 @@ import com.lunaticedit.legendofwaffles.contracts.Renderable;
 import com.lunaticedit.legendofwaffles.contracts.Repository;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
-import com.lunaticedit.legendofwaffles.implementations.Player;
+import com.lunaticedit.legendofwaffles.implementations.repository.Player;
 import com.lunaticedit.legendofwaffles.implementations.graphicsgenerator.TilesetGraphicsGenerator;
 
 public final class RenderServices {
@@ -21,10 +21,14 @@ public final class RenderServices {
      */
     public void render() {
 
+        final Player player = (new RepositoryFactory())
+                .generate()
+                .getPlayer();
+
         // Determine the bounds of the screen
         final Rectangle screenBounds = new Rectangle(
-            Math.max(0, Player.getInstance().getX() - (Constants.GameWidth / 2)),
-            Math.max(0, Player.getInstance().getY() - (Constants.GameHeight / 2)),
+            Math.max(0, player.getX() - (Constants.GameWidth / 2)),
+            Math.max(0, player.getY() - (Constants.GameHeight / 2)),
             Constants.GameWidth,
             Constants.GameHeight
         );
@@ -39,24 +43,28 @@ public final class RenderServices {
         // Render all renderable objects
         for(Renderable r :_repository.getRenderables()){
 
+
+            int actualX = r.getX() - (int)screenBounds.x;
+            int actualY = r.getY() - (int)screenBounds.y;
+
             // Don't render an object if it is invisible
             if (!r.getVisible())
             { continue; }
-
+            /*
             // Also don't render it if it is not visible on the screen
             if (((screenBounds.y + screenBounds.height < r.getY())) ||
                 ((screenBounds.x + screenBounds.width) < r.getX()) ||
-                ((r.getX() + (r.getTileSize().width * Constants.TileSize)) < screenBounds.y) ||
-                ((r.getY() + (r.getTileSize().height * Constants.TileSize)) < screenBounds.x)
+                ((actualX + (r.getTileSize().width * Constants.TileSize)) < screenBounds.y) ||
+                ((actualY + (r.getTileSize().height * Constants.TileSize)) < screenBounds.x)
             ) { continue; }
-
+            */
             int renderX;
-            int renderY = r.getY() - (int)screenBounds.y;
+            int renderY = actualY;
 
             for(int y = 0; y < r.getTileSize().height; y++) {
-                renderX = r.getX() - (int)screenBounds.x;
+                renderX = actualX;
                 for (int x = 0; x < r.getTileSize().width; x++ ) {
-                    g.drawTileAbsolute(
+                    g.drawTile(
                         renderX,
                         renderY,
                         (r.getTileOrigin().left + x) + ((r.getTileOrigin().top + y) * g.getTilesPerRow())
