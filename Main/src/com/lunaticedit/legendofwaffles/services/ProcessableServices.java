@@ -1,15 +1,15 @@
-package com.lunaticedit.legendofwaffles.consumers;
+package com.lunaticedit.legendofwaffles.services;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.lunaticedit.legendofwaffles.contracts.Processable;
 import com.lunaticedit.legendofwaffles.contracts.Repository;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 
-public class ProcessableConsumer {
+public class ProcessableServices {
     Repository _repository;
     private Rectangle _viewport;
 
-    public ProcessableConsumer(final RepositoryFactory repositoryFactory) throws Exception {
+    public ProcessableServices(final RepositoryFactory repositoryFactory) throws Exception {
         _repository = repositoryFactory.generate();
     }
 

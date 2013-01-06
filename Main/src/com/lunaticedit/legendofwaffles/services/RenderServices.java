@@ -1,4 +1,4 @@
-package com.lunaticedit.legendofwaffles.consumers;
+package com.lunaticedit.legendofwaffles.services;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.lunaticedit.legendofwaffles.contracts.GraphicsGenerator;
@@ -9,11 +9,10 @@ import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.implementations.Player;
 import com.lunaticedit.legendofwaffles.implementations.generators.TilesetGraphicsGenerator;
 
-public final class RenderConsumer {
+public final class RenderServices {
     Repository _repository;
-    private Rectangle _viewport;
 
-    public RenderConsumer(final RepositoryFactory repositoryFactory) throws Exception {
+    public RenderServices(final RepositoryFactory repositoryFactory) throws Exception {
             _repository = repositoryFactory.generate();
     }
 

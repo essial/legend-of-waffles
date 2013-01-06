@@ -17,15 +17,14 @@ public interface Repository {
     public LinkedList<Processable> getProcessables();
 
     /**
-     * Gets the current stage.
+     * Gets the current scene.
      */
     public Scene getScene();
 
     /**
-     * Sets the current stage. This is typically used in the render and update logic
-     * so changing this effectively changes the current stage being displayed
-     * int he game.
+     * Sets the current scene. This is typically used in the render and update logic
+     * so changing this effectively changes the current scene being displayed
+     * in the game (main menu, game over, etc).
      */
     public void setScene(final Scene scene);
-
 }

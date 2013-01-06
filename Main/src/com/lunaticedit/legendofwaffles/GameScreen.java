@@ -8,9 +8,9 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.lunaticedit.legendofwaffles.consumers.ProcessableConsumer;
-import com.lunaticedit.legendofwaffles.consumers.RenderConsumer;
-import com.lunaticedit.legendofwaffles.consumers.RepositoryConsumer;
+import com.lunaticedit.legendofwaffles.services.ProcessableServices;
+import com.lunaticedit.legendofwaffles.services.RenderServices;
+import com.lunaticedit.legendofwaffles.services.RepositoryServices;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.factories.SceneFactory;
 import com.lunaticedit.legendofwaffles.factories.SpriteBatchFactory;
@@ -23,7 +23,7 @@ public class GameScreen implements Screen, InputProcessor {
 
     public GameScreen() throws UnsupportedOperationException {
         // Bootstrap the repository and scene factory
-        (new RepositoryConsumer(new RepositoryFactory(), new SceneFactory())).bootstrap();
+        (new RepositoryServices(new RepositoryFactory(), new SceneFactory())).bootstrap();
 
         // Set up libGdx specific stuff...
         Gdx.input.setInputProcessor(this);
@@ -73,7 +73,7 @@ public class GameScreen implements Screen, InputProcessor {
                 .begin();
 
         // Render the current screen (into the sprite batch)
-        try { (new RenderConsumer(new RepositoryFactory())).render(); }
+        try { (new RenderServices(new RepositoryFactory())).render(); }
         catch (Exception e) { Gdx.app.log("Error", e.getMessage(), e); }
 
         // Close the sprite batch now that we have finished rendering.
@@ -82,7 +82,7 @@ public class GameScreen implements Screen, InputProcessor {
                 .end();
 
         // Process updates
-        try { (new ProcessableConsumer(new RepositoryFactory())).process(); }
+        try { (new ProcessableServices(new RepositoryFactory())).process(); }
         catch (Exception e) { Gdx.app.log("Error", e.getMessage(), e); }
 
     }

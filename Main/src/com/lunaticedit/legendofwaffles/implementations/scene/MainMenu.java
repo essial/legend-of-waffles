@@ -79,10 +79,7 @@ public final class MainMenu implements Scene {
         switch (_menuSelection) {
             case 0: {
                 // Start new game
-                (new RepositoryFactory())
-                        .generate()
-                        .setScene(new SceneFactory()
-                                .generateScene(SceneType.Game));
+                startNewGame();
             } break;
             case 1: {
                 // Continue existing game
@@ -95,5 +92,13 @@ public final class MainMenu implements Scene {
                 Gdx.app.exit();
             } break;
         }
+    }
+
+
+    private void startNewGame() {
+        (new RepositoryFactory())
+                .generate()
+                .setScene(new SceneFactory()
+                        .generateScene(SceneType.Game));
     }
 }

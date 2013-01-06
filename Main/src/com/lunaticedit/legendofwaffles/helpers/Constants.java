@@ -51,4 +51,5 @@ public class Constants {
 
     public static final int FontStartTile = 960;
     public static String MainMenuSong = "superchip.ogg";
+    public static String StageDefaultsFile = "StageInfo.xml";
 }
