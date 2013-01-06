@@ -19,7 +19,7 @@ public final class RepositoryServices {
 
     /**
      * Kicks off the repository initialization phase, and generates the main menu scene.
-     * @throws Exception when the main menu scene cannot be generated successfully.
+     * @throws UnsupportedOperationException when the main menu scene cannot be generated successfully.
      */
     public void bootstrap() throws UnsupportedOperationException {
         _repository.setScene(_sceneFactory.generateScene(SceneType.MainMenu));

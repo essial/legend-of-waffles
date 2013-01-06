@@ -3,16 +3,23 @@ package com.lunaticedit.legendofwaffles.services;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.utils.Base64Coder;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.factories.StageFactory;
+import com.lunaticedit.legendofwaffles.factories.StageObjectFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.zip.GZIPInputStream;
 
 /**
  * Provides services for Stage objects.
@@ -30,22 +37,22 @@ public class StageServices {
      * Load the stage defaults from the defaults file.
      */
     public void bootstrap() {
-        loadXML();
+        loadStageDefaultsXML();
     }
 
-    private void loadXML() {
+    private void loadStageDefaultsXML() {
         try {
             final FileHandle xmlFile = Gdx.files.internal(Constants.StageDefaultsFile);
             final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             final Document doc = dBuilder.parse(xmlFile.read());
             doc.getDocumentElement().normalize();
-            processStageManagerXML(doc.getDocumentElement());
+            processStageDefaultsXML(doc.getDocumentElement());
         }
         catch (Exception e) { Gdx.app.log("Error", e.getMessage(), e); }
     }
 
-    private void processStageManagerXML(final Element stageManagerElement) {
+    private void processStageDefaultsXML(final Element stageManagerElement) {
         final NodeList childNodes = stageManagerElement.getChildNodes();
         for (int i = 0; i < childNodes.getLength(); i++) {
             final Node childNode = childNodes.item(i);
@@ -55,11 +62,11 @@ public class StageServices {
             final String nodeName = childElement.getNodeName();
 
             if (nodeName.equals("Property"))
-            { processPropertyXML(childElement); }
+            { processDefaultsPropertyXML(childElement); }
         }
     }
 
-    private void processPropertyXML(final Element propertyElement) {
+    private void processDefaultsPropertyXML(final Element propertyElement) {
         final String propName = propertyElement.getAttribute("name");
         final String propValue = propertyElement.getAttribute("value");
 
@@ -85,8 +92,126 @@ public class StageServices {
     }
 
     public void loadStage(final String currentStage) {
-        String stageToLoad = (currentStage.isEmpty())
-                ? _stageFactory.generate().getDefaultStage()
-                : currentStage;
+        try {
+            loadStageXML(
+                    (currentStage.isEmpty())
+                        ? _stageFactory.generate().getDefaultStage()
+                        : currentStage
+            );
+        } catch (ParserConfigurationException e) {
+            Gdx.app.log("Error", e.getMessage(), e);
+        } catch (IOException e) {
+            Gdx.app.log("Error", e.getMessage(), e);
+        } catch (SAXException e) {
+            Gdx.app.log("Error", e.getMessage(), e);
+        }
     }
+
+    public void loadStageXML(final String fileName)
+            throws ParserConfigurationException, IOException, SAXException {
+        final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        final Document doc = dBuilder.parse(Gdx.files.internal(fileName + ".tmx").read());
+        doc.getDocumentElement().normalize();
+
+        final int mapWidth = Integer.parseInt(doc.getDocumentElement().getAttribute("width"));
+        final int mapHeight = Integer.parseInt(doc.getDocumentElement().getAttribute("height"));
+        _stageFactory
+                .generate()
+                .setMapWidth(mapWidth);
+
+        _stageFactory
+                .generate()
+                .setMapHeight(mapHeight);
+
+        final NodeList childNodes = doc.getDocumentElement().getChildNodes();
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            final Node childNode = childNodes.item(i);
+
+            if (childNode.getNodeType() != Node.ELEMENT_NODE)
+            { continue; }
+
+            final Element childElement = (Element) childNode;
+            final String cnn = childNode.getNodeName();
+
+            if (cnn.equals("layer")) {
+                processLayerDataXML(childElement, mapWidth, mapHeight);
+            }
+            else if (cnn.equals("objectgroup")) {
+                if (!childElement.getAttribute("name").equals("Data")) {
+                    continue; // TODO: This is an error condition while loading map
+                }
+                processStageObjectDataXML(childElement);
+            }
+            else if (cnn.equals("properties")) {
+                processStagePropertiesXML(childNode);
+            }
+
+        }
+    }
+
+    private void processStagePropertiesXML(final Node propertiesNode) {
+        NodeList childNodes = propertiesNode.getChildNodes();
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            final Node childNode = childNodes.item(i);
+            if (childNode.getNodeType() != Node.ELEMENT_NODE) {
+                continue;
+            }
+            final Element childElement = (Element) childNode;
+            final String cnn = childElement.getAttribute("name");
+
+            if (cnn.equals("Title")) {
+                _stageFactory
+                        .generate()
+                        .setStageTitle(childElement.getAttribute("value"));
+            }
+        }
+    }
+
+    private void processStageObjectDataXML(final Element objectNode) {
+        final NodeList childNodes = objectNode.getChildNodes();
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            final Node childNode = childNodes.item(i);
+            if (childNode.getNodeType() != Node.ELEMENT_NODE) {
+                continue;
+            }
+            final Element childElement = (Element) childNode;
+            final String cnn = childElement.getAttribute("type");
+
+            (new StageObjectFactory().generate(cnn))
+                    .processXML(childElement);
+
+            /*
+            if (cnn.equals("Collision Region"))  { processCollisionRegionXML(childElement); } else
+            if (cnn.equals("Coin Box"))          { processCoinBoxXML(childElement);         } else
+            if (cnn.equals("Vertical Cannon"))   { processVerticalCannonXML(childElement);  } else
+            if (cnn.equals("Warp Zone"))         { processWarpZoneXML(childElement);        } else
+            if (cnn.equals("Enemy Path"))        { processEnemyPath(childElement);          } else
+            if (cnn.equals("Enemy Girl"))        { processEnemyGirl(childElement);          } else
+            if (cnn.equals("Enemy Crab"))        { processEnemyCrab(childElement);          } else
+            if (cnn.equals("Vertical Platform")) { processVerticalPlatform(childElement);   }
+              */
+        }
+    }
+
+    private void processLayerDataXML(final Element layerNode, final int width, final int height)
+            throws IOException {
+        final String data = layerNode.getChildNodes().item(1).getTextContent().trim();
+        final byte[] decodedBytes = Base64Coder.decode(data);
+        final GZIPInputStream stream = new GZIPInputStream(new ByteArrayInputStream(decodedBytes));
+        final int[] _tileData = new int[width * height];
+        int pos = 0;
+        while (pos < (width * height)) {
+            int tileNum = stream.read();
+            tileNum |= (stream.read() << 8);
+            tileNum |= (stream.read() << 16);
+            tileNum |= (stream.read() << 24);
+            _tileData[pos++] = tileNum - 1;
+        }
+        _stageFactory
+                .generate()
+                .setTileData(_tileData);
+
+    }
+
 }
