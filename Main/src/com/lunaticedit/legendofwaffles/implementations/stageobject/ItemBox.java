@@ -72,7 +72,7 @@ public class ItemBox implements StageObject, Renderable, Processable, HitHandler
 
     @Override
     public Point getTileOrigin() {
-        return _opened
+        return !_opened
                 ? new Point(7, 0)
                 : new Point(8, 0);
     }

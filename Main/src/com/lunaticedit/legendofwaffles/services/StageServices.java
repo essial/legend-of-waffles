@@ -8,6 +8,7 @@ import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.factories.StageFactory;
 import com.lunaticedit.legendofwaffles.factories.StageObjectFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
+import com.lunaticedit.legendofwaffles.implementations.MusicPlayer;
 import com.lunaticedit.legendofwaffles.implementations.repository.Player;
 import com.lunaticedit.legendofwaffles.physics.Physics;
 import org.w3c.dom.Document;
@@ -95,6 +96,8 @@ public class StageServices {
 
     public void loadStage(final String currentStage) {
 
+        MusicPlayer.getInstance().stopSong();
+
         // Reset the physics engine
         Physics.reset();
 
@@ -139,7 +142,7 @@ public class StageServices {
             Gdx.app.log("Error", e.getMessage(), e);
         }
 
-
+        MusicPlayer.getInstance().playSong(Constants.GameSong);
     }
 
     public void loadStageXML(final String fileName)

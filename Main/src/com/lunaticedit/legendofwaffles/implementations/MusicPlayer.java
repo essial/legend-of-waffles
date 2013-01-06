@@ -50,6 +50,7 @@ public class MusicPlayer {
         }
         _music = Gdx.audio.newMusic(Gdx.files.internal(ResourceName));
         _music.play();
+        _music.setLooping(true);
     }
 
 
