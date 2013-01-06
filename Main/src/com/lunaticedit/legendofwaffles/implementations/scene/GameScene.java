@@ -1,13 +1,16 @@
 package com.lunaticedit.legendofwaffles.implementations.scene;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.lunaticedit.legendofwaffles.services.StageServices;
+import com.badlogic.gdx.math.Rectangle;
 import com.lunaticedit.legendofwaffles.contracts.Scene;
+import com.lunaticedit.legendofwaffles.contracts.Stage;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.factories.SpriteBatchFactory;
 import com.lunaticedit.legendofwaffles.factories.StageFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
-import com.lunaticedit.legendofwaffles.implementations.generators.TilesetGraphicsGenerator;
+import com.lunaticedit.legendofwaffles.implementations.graphicsgenerator.TilesetGraphicsGenerator;
+import com.lunaticedit.legendofwaffles.physics.Physics;
+import com.lunaticedit.legendofwaffles.services.StageServices;
 
 public final class GameScene implements Scene {
 
@@ -26,9 +29,9 @@ public final class GameScene implements Scene {
     }
 
     @Override
-    public void render() {
+    public void render(final Rectangle screenBounds) {
         if (!_loading)
-        { renderGame(); }
+        { renderGame(screenBounds); }
         else { showLoading(); }
     }
 
@@ -40,8 +43,10 @@ public final class GameScene implements Scene {
         if (_loading) {
             loadStage();
             _loading = false;
+            return;
         }
 
+        Physics.getInstance().step();
     }
 
     private void loadStage() {
@@ -62,7 +67,34 @@ public final class GameScene implements Scene {
         );
     }
 
-    private void renderGame() {
+    private void renderGame(final Rectangle screenBounds) {
+
+        final Stage stage = (new StageFactory()).generate();
+
+        final int pixelOffX = ((int)screenBounds.x % Constants.TileSize);
+        final int pixelOffY = ((int)screenBounds.y % Constants.TileSize);
+        final int tileOffX = ((int)screenBounds.x - pixelOffX) / Constants.TileSize;
+        final int tileOffY = ((int)screenBounds.y - pixelOffY) / Constants.TileSize;
+
+        final int tilesPerRow = stage.getMapWidth();
+        final int[] tileData = stage.getTileData();
+
+        //final Graphics g = bufferedImage.getGraphics();
+        for (int y = -1; y < (Constants.GameHeight / Constants.TileSize) + 1; y++) {
+            for (int x = -1; x < (Constants.GameWidth / Constants.TileSize) + 1; x++) {
+
+                if (x + tileOffX < 0) {continue;}
+                if (y + tileOffY < 0) {continue;}
+
+                final int tileNum = tileData[x + tileOffX + ((y + tileOffY) * tilesPerRow)];
+
+                if (tileNum == -1)
+                { continue; }
+
+                (new TilesetGraphicsGenerator())
+                        .drawTile(x * Constants.TileSize, y * Constants.TileSize, tileNum);
+            }
+        }
 
     }
 }

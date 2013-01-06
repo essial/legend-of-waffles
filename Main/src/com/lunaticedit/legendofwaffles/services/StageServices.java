@@ -8,6 +8,8 @@ import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.factories.StageFactory;
 import com.lunaticedit.legendofwaffles.factories.StageObjectFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
+import com.lunaticedit.legendofwaffles.implementations.Player;
+import com.lunaticedit.legendofwaffles.physics.Physics;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -92,6 +94,33 @@ public class StageServices {
     }
 
     public void loadStage(final String currentStage) {
+
+        // Reset the physics engine
+        Physics.reset();
+
+        // Clear out existing repository information as we are about to load new elements in.
+        _repositoryFactory
+                .generate()
+                .getProcessables()
+                .clear();
+
+        _repositoryFactory
+                .generate()
+                .getRenderables()
+                .clear();
+
+        if (currentStage.equals("")) {
+            Player.getInstance().initializePhysics();
+            Player.getInstance().setPosition(
+                    (_stageFactory
+                            .generate()
+                            .getPlayerStartX() * Constants.TileSize),
+                    (_stageFactory
+                            .generate()
+                            .getPlayerStartY() * Constants.TileSize)
+            );
+        }
+
         try {
             loadStageXML(
                     (currentStage.isEmpty())
@@ -177,9 +206,10 @@ public class StageServices {
             }
             final Element childElement = (Element) childNode;
             final String cnn = childElement.getAttribute("type");
-
+            try {
             (new StageObjectFactory().generate(cnn))
                     .processXML(childElement);
+            } catch (UnsupportedOperationException e) {}
 
             /*
             if (cnn.equals("Collision Region"))  { processCollisionRegionXML(childElement); } else

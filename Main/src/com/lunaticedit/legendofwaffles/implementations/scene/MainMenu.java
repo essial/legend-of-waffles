@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.lunaticedit.legendofwaffles.contracts.Scene;
 import com.lunaticedit.legendofwaffles.enums.SceneType;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
@@ -13,7 +14,7 @@ import com.lunaticedit.legendofwaffles.factories.SpriteBatchFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.implementations.Input;
 import com.lunaticedit.legendofwaffles.implementations.MusicPlayer;
-import com.lunaticedit.legendofwaffles.implementations.generators.TilesetGraphicsGenerator;
+import com.lunaticedit.legendofwaffles.implementations.graphicsgenerator.TilesetGraphicsGenerator;
 
 public final class MainMenu implements Scene {
     private final Texture _texture;
@@ -27,7 +28,7 @@ public final class MainMenu implements Scene {
     }
 
     @Override
-    public void render() {
+    public void render(final Rectangle screenBounds) {
         final SpriteBatch s = new SpriteBatchFactory().generate();
         final TilesetGraphicsGenerator g = (new TilesetGraphicsGenerator());
         // Render the background image

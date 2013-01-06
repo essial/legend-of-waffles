@@ -49,6 +49,9 @@ public class Constants {
      */
     public static final float AspectRatio = (float)GameWidth/(float)GameHeight;
 
+    public static final float PhysicsGravity = 10.0f;
+    public static final float PhysicsRenderTime = 1.0f / 60f;
+
     public static final int FontStartTile = 960;
     public static String MainMenuSong = "superchip.ogg";
     public static String StageDefaultsFile = "StageInfo.xml";

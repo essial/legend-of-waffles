@@ -1,4 +1,4 @@
-package com.lunaticedit.legendofwaffles.implementations.generators;
+package com.lunaticedit.legendofwaffles.implementations.graphicsgenerator;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.lunaticedit.legendofwaffles.contracts.GraphicsGenerator;

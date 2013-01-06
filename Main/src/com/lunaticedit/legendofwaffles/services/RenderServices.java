@@ -7,7 +7,7 @@ import com.lunaticedit.legendofwaffles.contracts.Repository;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.implementations.Player;
-import com.lunaticedit.legendofwaffles.implementations.generators.TilesetGraphicsGenerator;
+import com.lunaticedit.legendofwaffles.implementations.graphicsgenerator.TilesetGraphicsGenerator;
 
 public final class RenderServices {
     Repository _repository;
@@ -21,11 +21,6 @@ public final class RenderServices {
      */
     public void render() {
 
-        // Render the scene
-        _repository
-                .getScene()
-                .render();
-
         // Determine the bounds of the screen
         final Rectangle screenBounds = new Rectangle(
             Math.max(0, Player.getInstance().getX() - (Constants.GameWidth / 2)),
@@ -33,6 +28,11 @@ public final class RenderServices {
             Constants.GameWidth,
             Constants.GameHeight
         );
+
+        // Render the scene
+        _repository
+                .getScene()
+                .render(screenBounds);
 
         GraphicsGenerator g = new TilesetGraphicsGenerator();
 
@@ -65,10 +65,6 @@ public final class RenderServices {
                 }
                 renderY += Constants.TileSize;
             }
-
-
-
-
         }
 
     }
