@@ -149,6 +149,25 @@ public final class Physics implements ContactListener {
         return result;
     }
 
+    public Body createCircularBody(final int x, final int y, final Vector2 force) {
+        BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        bodyDef.position.set(Physics.toMeters(x), Physics.toMeters(y));
+        Body _body = Physics.getInstance().createBody(bodyDef);
+        CircleShape dynamicBox = new CircleShape();
+        float width = Physics.toMeters(Constants.TileSize)/ 2.0f;
+        dynamicBox.setRadius(width * 0.8f);
+        FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = dynamicBox;
+        fixtureDef.density = 0.5f;
+        fixtureDef.friction = 0.1f;
+        _body.createFixture(fixtureDef);
+        _body.setFixedRotation(true);
+        _body.applyForce(force, _body.getWorldCenter());
+        _body.setUserData(false);
+        return _body;
+    }
+
     public Body createRectangularBody(final int xPos, final int yPos, final int width, final int height) {
         final int centerWidth = width / 2;
         final int centerHeight = height / 2;

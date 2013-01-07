@@ -2,13 +2,9 @@ package com.lunaticedit.legendofwaffles.implementations.stageobject;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.lunaticedit.legendofwaffles.contracts.Renderable;
 import com.lunaticedit.legendofwaffles.enums.SoundEffect;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
-import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.helpers.Dimension;
 import com.lunaticedit.legendofwaffles.helpers.Point;
 import com.lunaticedit.legendofwaffles.implementations.MusicPlayer;
@@ -38,21 +34,10 @@ public class Coin implements Renderable, HitHandler {
                 .getRenderables()
                 .add(this);
 
-        BodyDef bodyDef = new BodyDef();
-        bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(Physics.toMeters(x), Physics.toMeters(y));
-        _body = Physics.getInstance().createBody(bodyDef);
-        CircleShape dynamicBox = new CircleShape();
-        float width = Physics.toMeters(Constants.TileSize)/ 2.0f;
-        dynamicBox.setRadius(width * 0.8f);
-        FixtureDef fixtureDef = new FixtureDef();
-        fixtureDef.shape = dynamicBox;
-        fixtureDef.density = 0.5f;
-        fixtureDef.friction = 0.1f;
-        _body.createFixture(fixtureDef);
-        _body.setFixedRotation(true);
-        _body.applyForce(force, _body.getWorldCenter());
-        _body.setUserData(false);
+        _body = Physics
+                .getInstance()
+                .createCircularBody(x, y, force);
+
         _hitWatcher = new HitWatcher(this, _body);
         Physics.getInstance().registerHitWacher(_hitWatcher);
     }
