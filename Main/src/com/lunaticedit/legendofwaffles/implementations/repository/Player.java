@@ -5,11 +5,13 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.lunaticedit.legendofwaffles.contracts.Animation;
 import com.lunaticedit.legendofwaffles.contracts.Processable;
 import com.lunaticedit.legendofwaffles.contracts.Renderable;
+import com.lunaticedit.legendofwaffles.enums.SoundEffect;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.helpers.Dimension;
 import com.lunaticedit.legendofwaffles.helpers.Point;
 import com.lunaticedit.legendofwaffles.implementations.Input;
+import com.lunaticedit.legendofwaffles.implementations.MusicPlayer;
 import com.lunaticedit.legendofwaffles.physics.Physics;
 import com.lunaticedit.legendofwaffles.services.AnimationService;
 
@@ -23,6 +25,7 @@ public class Player implements Renderable, Processable, Animation {
     private boolean _faceLeft;
     private int _currentFrame;
     private long _animationTime;
+    private int _coins;
 
     /**
      * Gets the X position of the player, in pixels.
@@ -118,7 +121,7 @@ public class Player implements Renderable, Processable, Animation {
         }
 
         double jumpVel = Math.abs(vel.y);
-        if (jumpVel > 0.05f) {
+        if (jumpVel > 0.03f) {
             _groundTimeStart = System.currentTimeMillis();
         } else {
             if (!_movingRight && !_movingLeft && vel.x != 0.0) {
@@ -176,13 +179,26 @@ public class Player implements Renderable, Processable, Animation {
             Vector2 vel = _body.getLinearVelocity();
             vel.y = -4.3f;
             vel.x = 0.0f;
+            MusicPlayer.playSound(SoundEffect.Jump);
             _body.applyForce(vel, _body.getWorldCenter());
         }
 
     }
 
     private boolean canJump() {
-        return ((System.currentTimeMillis() - _groundTimeStart) > 35);
+        return ((System.currentTimeMillis() - _groundTimeStart) > 20);
+    }
+
+    public int getCoins() {
+        return _coins;
+    }
+
+    public void adjustCoins(int val) {
+        _coins += val;
+    }
+
+    public void setCoins(int val) {
+        _coins = val;
     }
 
     @Override

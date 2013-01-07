@@ -88,7 +88,7 @@ public final class GameScene implements Scene {
 
 
 
-        for (int y = -1; y < (Constants.GameHeight / Constants.TileSize) + 1; y++) {
+        for (int y = -1; y < (Constants.GameHeight / Constants.TileSize) + 2; y++) {
             for (int x = -1; x < (Constants.GameWidth / Constants.TileSize) + 1; x++) {
 
                 if (x + tileOffX < 0) {continue;}

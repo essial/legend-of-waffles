@@ -1,6 +1,7 @@
 package com.lunaticedit.legendofwaffles.implementations.stageobject;
 
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
@@ -19,13 +20,22 @@ import com.lunaticedit.legendofwaffles.physics.HitWatcher;
 import com.lunaticedit.legendofwaffles.physics.Physics;
 import org.w3c.dom.Element;
 
+import java.util.Random;
+
 public class ItemBox implements StageObject, Renderable, Processable, HitHandler {
     private int _posX;
     private int _posY;
     private boolean _opened;
     private int _hitsLeft;
     private HitWatcher _hitWatcher;
+    private final Random r;
     private double _lastHit = System.currentTimeMillis();
+    private boolean _generateCoin;
+
+    public ItemBox() {
+        r = new Random();
+        _generateCoin = false;
+    }
 
     @Override
     public void processXML(final Element element) {
@@ -79,7 +89,14 @@ public class ItemBox implements StageObject, Renderable, Processable, HitHandler
 
     @Override
     public void process() {
-
+        if (_generateCoin) {
+            _generateCoin = false;
+            new Coin(
+                    getX() - (Constants.TileSize / 2),
+                    getY() - Constants.TileSize,
+                    new Vector2((r.nextFloat() * 0.5f) - 0.25f, -((r.nextFloat() * 0.5f) + 1.0f))
+            );
+        }
     }
 
     @Override
@@ -103,20 +120,16 @@ public class ItemBox implements StageObject, Renderable, Processable, HitHandler
         if (player.getY() < _posY)
         { return; }
 
-        MusicPlayer.playSound(SoundEffect.BoxHit);
         if (--_hitsLeft == 0) {
             _opened = true;
             Physics.getInstance().removeHitWatcher(_hitWatcher);
         }
 
-        // TODO: Generate coin
+        MusicPlayer.playSound(SoundEffect.BoxHit);
 
-        /*
-        Messenger.getInstance().pushMessage(new Message(MessageClass.Stage, MessageType.CoinGenerated,
-                new Coin(_tileX * Constants.GAME_TILESIZE, (_tileY - 1) * Constants.GAME_TILESIZE,
-                        new Vector2((r.nextFloat() * 0.5f) - 0.25f, -((r.nextFloat() * 0.5f) + 1.0f)))));
-        */
-
+        // NOTE: We cannot generate a coin here because this is called during the physics' update
+        // loop. Attempting to modify the bodies will cause the physics engine to throw an assert and crash.
+        _generateCoin = true;
     }
 
     private void initializePhysics() {

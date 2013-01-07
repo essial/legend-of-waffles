@@ -88,10 +88,14 @@ public final class Physics implements ContactListener {
                 }
 
                 final ArrayList<JointEdge> list = b.getJointList();
-                while (list.size() > 0) {
+                while ((list.size() > 0) && !_world.isLocked()) {
                     _world.destroyJoint(list.get(0).joint);
                 }
-                _world.destroyBody(b);
+
+                if (!_world.isLocked()) {
+                    _world.destroyBody(b);
+                }
+
                 break;
             }
 
@@ -140,6 +144,7 @@ public final class Physics implements ContactListener {
         fixtureDef.friction = friction;
         result.createFixture(fixtureDef);
         result.setFixedRotation(true);
+        result.setUserData(false);
 
         return result;
     }
@@ -156,6 +161,7 @@ public final class Physics implements ContactListener {
         final PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(Physics.toMeters(centerWidth), Physics.toMeters(centerHeight));
         groundBody.createFixture(groundBox, 0.0f);
+        groundBody.setUserData(false);
         return groundBody;
     }
 
