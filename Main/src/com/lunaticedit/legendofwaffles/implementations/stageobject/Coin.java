@@ -12,13 +12,6 @@ import com.lunaticedit.legendofwaffles.physics.HitHandler;
 import com.lunaticedit.legendofwaffles.physics.HitWatcher;
 import com.lunaticedit.legendofwaffles.physics.Physics;
 
-/**
- * Created with IntelliJ IDEA.
- * User: timsarbin
- * Date: 1/6/13
- * Time: 6:25 PM
- * To change this template use File | Settings | File Templates.
- */
 public class Coin implements Renderable, HitHandler {
     private Body _body;
     private HitWatcher _hitWatcher;
@@ -31,7 +24,7 @@ public class Coin implements Renderable, HitHandler {
         // Attach to the repository
         (new RepositoryFactory())
                 .generate()
-                .getRenderables()
+                .getObjects()
                 .add(this);
 
         _body = Physics
@@ -88,11 +81,10 @@ public class Coin implements Renderable, HitHandler {
         if ((System.currentTimeMillis() - _genTime) < 100)
         { return; }
 
-                // Detach from the repository
+        // Detach from the repository
         (new RepositoryFactory())
                 .generate()
-                .getRenderables()
-                .remove(this);
+                .removeObject(this);
 
         _body.setUserData(true);
         (new RepositoryFactory())

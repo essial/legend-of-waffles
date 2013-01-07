@@ -104,12 +104,7 @@ public class StageServices {
         // Clear out existing repository information as we are about to load new elements in.
         _repositoryFactory
                 .generate()
-                .getProcessables()
-                .clear();
-
-        _repositoryFactory
-                .generate()
-                .getRenderables()
+                .getObjects()
                 .clear();
 
         final Player player = (new RepositoryFactory())

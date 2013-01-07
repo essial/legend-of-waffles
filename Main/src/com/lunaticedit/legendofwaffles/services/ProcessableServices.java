@@ -22,8 +22,13 @@ public class ProcessableServices {
                 .update();
 
         // Process all processable objects
-        for(Processable p :_repository.getProcessables())
-        { p.process(); }
+        Object[] objs = _repository.getObjects().toArray();
+        for(Object px : objs) {
+            if (!(px instanceof Processable))
+            { continue; }
+            Processable p = (Processable)px;
+            p.process();
+        }
 
     }
 }

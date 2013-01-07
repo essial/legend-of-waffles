@@ -3,9 +3,12 @@ package com.lunaticedit.legendofwaffles.implementations.repository;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.lunaticedit.legendofwaffles.contracts.Animation;
+import com.lunaticedit.legendofwaffles.contracts.Attackable;
 import com.lunaticedit.legendofwaffles.contracts.Processable;
 import com.lunaticedit.legendofwaffles.contracts.Renderable;
+import com.lunaticedit.legendofwaffles.enums.Facing;
 import com.lunaticedit.legendofwaffles.enums.SoundEffect;
+import com.lunaticedit.legendofwaffles.enums.WeaponType;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.helpers.Dimension;
@@ -14,8 +17,9 @@ import com.lunaticedit.legendofwaffles.implementations.Input;
 import com.lunaticedit.legendofwaffles.implementations.MusicPlayer;
 import com.lunaticedit.legendofwaffles.physics.Physics;
 import com.lunaticedit.legendofwaffles.services.AnimationService;
+import com.lunaticedit.legendofwaffles.services.AttackableServices;
 
-public class Player implements Renderable, Processable, Animation {
+public class Player implements Renderable, Processable, Animation, Attackable {
     private Body _body;
     private boolean _running;
     private boolean _movingLeft;
@@ -26,6 +30,26 @@ public class Player implements Renderable, Processable, Animation {
     private int _currentFrame;
     private long _animationTime;
     private int _coins;
+    private int _health;
+    private int _maxHealth;
+    private boolean _staggered;
+    private int _attackStrength;
+    private int _defense;
+    private long _attackTime;
+    private long _attackedTime;
+    private int _attackRange;
+    public WeaponType _weaponType;
+
+    public Player() {
+        _maxHealth = 4;
+        _health = 4;
+        _coins = 0;
+        _staggered = false;
+        _attackStrength = 1;
+        _defense = 0;
+        _attackRange = 5;
+        _weaponType = WeaponType.ShortSword;
+    }
 
     /**
      * Gets the X position of the player, in pixels.
@@ -49,6 +73,11 @@ public class Player implements Renderable, Processable, Animation {
         return Physics.toPixels(position.y) - 3;
     }
 
+    @Override
+    public WeaponType getWeaponType() {
+        return _weaponType;
+    }
+
     public boolean involved(Body body1, Body body2) {
         return ((body1 == _body) || (body2 == _body));
     }
@@ -69,13 +98,11 @@ public class Player implements Renderable, Processable, Animation {
     public void attach() {
         (new RepositoryFactory())
                 .generate()
-                .getProcessables()
+                .getObjects()
                 .add(this);
 
-        (new RepositoryFactory())
-                .generate()
-                .getRenderables()
-                .add(this);
+        (new AttackableServices(this))
+                .initialize();
     }
 
     @Override
@@ -183,6 +210,21 @@ public class Player implements Renderable, Processable, Animation {
             _body.applyForce(vel, _body.getWorldCenter());
         }
 
+        if (Input.getInstance().getKeyState(com.badlogic.gdx.Input.Keys.C)) {
+            Input.getInstance().setKeyState(com.badlogic.gdx.Input.Keys.C, false);
+            doAttack();
+        }
+
+    }
+
+    private void doAttack() {
+        if (!(new AttackableServices(this)).canAttack())
+        { return; }
+
+        (new AttackableServices(this)).startAttackAttempt();
+
+        // TODO: Weapon types...
+        MusicPlayer.playSound(SoundEffect.SwordSwing);
     }
 
     private boolean canJump() {
@@ -195,10 +237,6 @@ public class Player implements Renderable, Processable, Animation {
 
     public void adjustCoins(int val) {
         _coins += val;
-    }
-
-    public void setCoins(int val) {
-        _coins = val;
     }
 
     @Override
@@ -233,5 +271,82 @@ public class Player implements Renderable, Processable, Animation {
     @Override
     public void setAnimationTime(final long value) {
         _animationTime = value;
+    }
+
+    @Override
+    public int getHealth() {
+        return _health;
+    }
+
+    @Override
+    public void setHealth(final int value) {
+        _health = value;
+    }
+
+    @Override
+    public boolean getStaggered() {
+        return _staggered;
+    }
+
+    @Override
+    public void setStaggered(final boolean value) {
+        _staggered = value;
+    }
+
+    @Override
+    public int getAttackStrength() {
+        return _attackStrength;
+    }
+
+    @Override
+    public int getAttackDefense() {
+        return _defense;
+    }
+
+    @Override
+    public void onHitBy(final Attackable source) {
+        // TODO: Hitby Logic
+    }
+
+    @Override
+    public void onKilledBy(final Attackable source) {
+        // TODO: Killed logic
+    }
+
+    @Override
+    public void onVictimKilled(final Attackable source) {
+        // TODO: Anything?
+    }
+
+    @Override
+    public long getAttackTime() {
+        return _attackTime;
+    }
+
+    @Override
+    public void setAttackTime(final long value) {
+        _attackTime = value;
+    }
+
+    @Override
+    public long getAttackedTime() {
+        return _attackedTime;
+    }
+
+    @Override
+    public void setAttackedTime(final long value) {
+        _attackedTime = value;
+    }
+
+    @Override
+    public Facing getFacingDirection() {
+        return _faceLeft
+                ? Facing.Left
+                : Facing.Right;
+    }
+
+    @Override
+    public int getAttackRange() {
+        return _attackRange;
     }
 }

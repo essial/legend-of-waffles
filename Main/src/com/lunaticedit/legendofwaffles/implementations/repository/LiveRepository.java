@@ -1,33 +1,39 @@
 package com.lunaticedit.legendofwaffles.implementations.repository;
 
-import com.lunaticedit.legendofwaffles.contracts.Processable;
-import com.lunaticedit.legendofwaffles.contracts.Renderable;
 import com.lunaticedit.legendofwaffles.contracts.Repository;
 import com.lunaticedit.legendofwaffles.contracts.Scene;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public final class LiveRepository implements Repository {
     // Data Store
-    private final LinkedList<Renderable> _renderables;
-    private final LinkedList<Processable> _processables;
+    private final LinkedList<Object> _objects;
+    private final ArrayList<Object> _removalQueue;
     private Scene _scene;
     private Player _player;
 
     public LiveRepository() {
-        _renderables = new LinkedList<Renderable>();
-        _processables = new LinkedList<Processable>();
+        _objects = new LinkedList<Object>();
+        _removalQueue = new ArrayList<Object>();
         _player = new Player();
     }
 
     @Override
-    public LinkedList<Renderable> getRenderables() {
-
-        return _renderables;
+    public LinkedList<Object> getObjects() {
+        if (_removalQueue.size() > 0) {
+            for(Object o : _removalQueue) {
+                if (_objects.contains(o))
+                { _objects.remove(o); }
+            }
+            _removalQueue.clear();
+        }
+        return _objects;
     }
+
     @Override
-    public LinkedList<Processable> getProcessables() {
-        return _processables;
+    public void removeObject(final Object object) {
+        _removalQueue.add(object);
     }
 
     @Override

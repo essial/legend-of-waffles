@@ -1,11 +1,9 @@
 package com.lunaticedit.legendofwaffles.implementations.scene;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.lunaticedit.legendofwaffles.contracts.Scene;
 import com.lunaticedit.legendofwaffles.contracts.Stage;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
-import com.lunaticedit.legendofwaffles.factories.SpriteBatchFactory;
 import com.lunaticedit.legendofwaffles.factories.StageFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.implementations.graphicsgenerator.TilesetGraphicsGenerator;
@@ -63,7 +61,6 @@ public final class GameScene implements Scene {
     }
 
     private void showLoading() {
-        final SpriteBatch s = new SpriteBatchFactory().generate();
         final TilesetGraphicsGenerator g = (new TilesetGraphicsGenerator());
         final int centerX = (Constants.GameWidth / 2);
 

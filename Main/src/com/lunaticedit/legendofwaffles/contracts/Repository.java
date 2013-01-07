@@ -11,12 +11,9 @@ public interface Repository {
     /**
      * Gets the collection of objects that can be rendered onto the screen.
      */
-    public LinkedList<Renderable> getRenderables();
+    public LinkedList<Object> getObjects();
 
-    /**
-     * Gets the collection of objects that can be processed each game loop iteration.
-     */
-    public LinkedList<Processable> getProcessables();
+    public void removeObject(Object object);
 
     /**
      * Gets the current scene.

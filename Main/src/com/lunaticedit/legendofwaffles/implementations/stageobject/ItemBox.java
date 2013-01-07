@@ -49,12 +49,7 @@ public class ItemBox implements StageObject, Renderable, Processable, HitHandler
         // Attach to the repository
         (new RepositoryFactory())
                 .generate()
-                .getRenderables()
-                .add(this);
-
-        (new RepositoryFactory())
-                .generate()
-                .getProcessables()
+                .getObjects()
                 .add(this);
 
         initializePhysics();

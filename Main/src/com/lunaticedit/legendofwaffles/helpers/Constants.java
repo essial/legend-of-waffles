@@ -56,4 +56,8 @@ public class Constants {
     public static String MainMenuSong = "superchip.ogg";
     public static String GameSong = "back2blue.ogg";
     public static String StageDefaultsFile = "StageInfo.xml";
+
+    public static final int AttackSpacing = 300; // How long between attacks
+    public static final int AttackDuration = 150; // How long the attack is 'active'
+    public static final int StaggerDuration = 150; // How long something 'staggers'
 }
