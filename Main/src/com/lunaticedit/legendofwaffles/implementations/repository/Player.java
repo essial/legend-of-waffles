@@ -84,7 +84,6 @@ public class Player implements Renderable, Processable, Animation, Attackable {
 
     public void initializePhysics() {
         _body = Physics.getInstance().createHumanoidBody(getX(), getY(), 0.0f, 1.0f);
-        _body.setFixedRotation(true);
     }
 
     public void setPosition(final int x, final int y) {
@@ -161,6 +160,10 @@ public class Player implements Renderable, Processable, Animation, Attackable {
     }
 
     private void handleInput() {
+
+        if (Input.getInstance().getKeyState(com.badlogic.gdx.Input.Keys.Q)) {
+            System.exit(0);
+        }
 
         // Running
         if (Input.getInstance().getKeyState(com.badlogic.gdx.Input.Keys.Z)) {

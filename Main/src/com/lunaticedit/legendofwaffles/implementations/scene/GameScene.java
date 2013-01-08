@@ -85,7 +85,9 @@ public final class GameScene implements Scene {
 
 
 
+        int yPos = (-1 * Constants.TileSize) - pixelOffY;
         for (int y = -1; y < (Constants.GameHeight / Constants.TileSize) + 2; y++) {
+            int xPos = (-1 * Constants.TileSize) - pixelOffX;
             for (int x = -1; x < (Constants.GameWidth / Constants.TileSize) + 1; x++) {
 
                 if (x + tileOffX < 0) {continue;}
@@ -93,16 +95,20 @@ public final class GameScene implements Scene {
 
                 final int tileNum = tileData[x + tileOffX + ((y + tileOffY) * tilesPerRow)];
 
-                if (tileNum == -1)
-                { continue; }
+                if (tileNum == -1) {
+                    xPos += Constants.TileSize;
+                    continue;
+                }
 
                 (new TilesetGraphicsGenerator())
                         .drawTile(
-                                (x * Constants.TileSize) - pixelOffX,
-                                (y * Constants.TileSize) - pixelOffY,
+                                xPos,
+                                yPos,
                                 tileNum
                         );
+                xPos += Constants.TileSize;
             }
+            yPos += Constants.TileSize;
         }
 
     }

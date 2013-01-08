@@ -1,5 +1,6 @@
 package com.lunaticedit.legendofwaffles;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
@@ -11,7 +12,15 @@ public class DesktopStarter {
         cfg.useGL20 = true;
         cfg.width = Constants.GameWidth * 2;
         cfg.height = Constants.GameHeight * 2;
+        cfg.vSyncEnabled = true;
+
         cfg.resizable = false;
         new LwjglApplication(new LegendOfWaffles(), cfg);
+        Gdx.app.getGraphics().setDisplayMode(
+                Gdx.app.getGraphics().getDesktopDisplayMode().width,
+                Gdx.app.getGraphics().getDesktopDisplayMode().height,
+                false
+        );
+
     }
 }

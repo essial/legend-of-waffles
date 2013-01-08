@@ -34,8 +34,8 @@ public class TilesetGraphicsGenerator implements GraphicsGenerator {
 
     @Override
     public void drawTile(final int x, final int y, final int tileNum) {
-        final float xPos = -((float)Constants.GameWidth  / 2.0f) + (float)x;
-        final float yPos =  ((float)(Constants.GameHeight - Constants.VerticalReduce) / 2.0f) - (float)y;
+        final float xPos = -(Constants.GameWidth  / 2) + x;
+        final float yPos =  ((Constants.GameHeight - Constants.VerticalReduce) / 2) - y;
 
         (new SpriteBatchFactory()).generate().draw(
                 _texture,
@@ -54,8 +54,8 @@ public class TilesetGraphicsGenerator implements GraphicsGenerator {
 
     @Override
     public void drawTileAbsolute(final int x, final int y, final int tileNum) {
-        final float xPos = -((float)Constants.GameWidth  / 2.0f) + (float)x;
-        final float yPos =  ((float)(Constants.GameHeight - Constants.VerticalReduce) / 2.0f) - (float)y;
+        final float xPos = -(Constants.GameWidth  / 2) + x;
+        final float yPos =  ((Constants.GameHeight - Constants.VerticalReduce) / 2) - y;
 
         (new SpriteBatchFactory()).generate().draw(
                 _texture,
