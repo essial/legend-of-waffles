@@ -13,6 +13,7 @@ import com.lunaticedit.legendofwaffles.physics.HitHandler;
 import com.lunaticedit.legendofwaffles.physics.HitWatcher;
 import com.lunaticedit.legendofwaffles.physics.Physics;
 import com.lunaticedit.legendofwaffles.services.AnimationService;
+import com.lunaticedit.legendofwaffles.services.AttackableServices;
 import com.lunaticedit.legendofwaffles.services.NPCServices;
 import org.w3c.dom.Element;
 
@@ -69,6 +70,7 @@ public class Crab implements NPC, Renderable, Attackable, Processable, StageObje
     @Override
     public void onHitBy(final Attackable source) {
         // TODO: Hit logic
+        System.err.printf("Attacked!");
     }
 
     @Override
@@ -178,6 +180,9 @@ public class Crab implements NPC, Renderable, Attackable, Processable, StageObje
 
         (new AnimationService(this))
                 .update();
+
+        (new AttackableServices(this)).
+                update();
     }
 
     private void initializePhysics() {

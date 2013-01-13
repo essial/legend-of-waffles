@@ -29,7 +29,7 @@ public final class RenderServices {
         // Determine the bounds of the screen
         final Rectangle screenBounds = new Rectangle(
             Math.max(0, player.getX() - (Constants.GameWidth / 2)),
-            Math.max(0, player.getY() - (Constants.GameHeight / 2)),
+            Math.max(0, (player.getY() - 50) - (Constants.GameHeight / 2)),
             Constants.GameWidth,
             Constants.GameHeight
         );

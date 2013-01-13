@@ -157,6 +157,7 @@ public class Player implements Renderable, Processable, Animation, Attackable {
             }
         }
         (new AnimationService(this)).update();
+        (new AttackableServices(this)).update();
     }
 
     private void handleInput() {

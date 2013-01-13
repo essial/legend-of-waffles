@@ -1,9 +1,12 @@
 package com.lunaticedit.legendofwaffles.implementations.scene;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.lunaticedit.legendofwaffles.contracts.Scene;
 import com.lunaticedit.legendofwaffles.contracts.Stage;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
+import com.lunaticedit.legendofwaffles.factories.SpriteBatchFactory;
 import com.lunaticedit.legendofwaffles.factories.StageFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.implementations.graphicsgenerator.TilesetGraphicsGenerator;
@@ -14,6 +17,8 @@ public final class GameScene implements Scene {
 
     private boolean _loading;
     private String _currentStage;
+    private final Texture _bg1;
+    private final Texture _bg2;
 
     public GameScene() {
 
@@ -24,6 +29,9 @@ public final class GameScene implements Scene {
         // player location, etc...
         (new StageServices(new RepositoryFactory(), new StageFactory()))
                 .bootstrap();
+
+        _bg1 = new Texture(Constants.GameBG1File);
+        _bg2 = new Texture(Constants.GameBG2File);
     }
 
     @Override
@@ -72,6 +80,12 @@ public final class GameScene implements Scene {
     }
 
     private void renderGame(final Rectangle screenBounds) {
+        final SpriteBatch s = new SpriteBatchFactory().generate();
+        final int bgX = (int)(screenBounds.x % 1600) / 4;
+        final int bgY = (int)(screenBounds.y - 1000) / 4;
+        s.draw(_bg1, -140f - bgX, -110f + bgY);
+        s.draw(_bg1, 260f - bgX, -110f + bgY);
+        //s.draw(_bg2, -140f, -82f);
 
         final Stage stage = (new StageFactory()).generate();
 

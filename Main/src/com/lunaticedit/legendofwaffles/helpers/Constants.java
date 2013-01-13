@@ -18,6 +18,8 @@ public class Constants {
     public static final String TilesetFile = "tileset.png";
 
     public static final String MainMenuBackgroundFile = "title.png";
+    public static final String GameBG1File = "background1.png";
+    public static final String GameBG2File = "background2.png";
 
     /**
      * Width of the rendering area in pixels.
