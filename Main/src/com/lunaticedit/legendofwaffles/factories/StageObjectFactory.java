@@ -4,6 +4,7 @@ import com.lunaticedit.legendofwaffles.contracts.StageObject;
 import com.lunaticedit.legendofwaffles.implementations.npc.Crab;
 import com.lunaticedit.legendofwaffles.implementations.stageobject.CollisionRegion;
 import com.lunaticedit.legendofwaffles.implementations.stageobject.ItemBox;
+import com.lunaticedit.legendofwaffles.implementations.stageobject.Platform;
 
 public class StageObjectFactory {
     public StageObject generate(String typeName) {
@@ -14,6 +15,7 @@ public class StageObjectFactory {
         //if (typeName.equals("Enemy Path"))        { processEnemyPath(childElement);          }
         //if (typeName.equals("Enemy Girl"))        { processEnemyGirl(childElement);          }
         if (typeName.equals("Enemy Crab"))          { return new Crab();          }
+        if (typeName.equals("Platform"))            { return new Platform();      }
         //if (typeName.equals("Vertical Platform")) { processVerticalPlatform(childElement);   }
         throw new UnsupportedOperationException("Attempted to generate an object of type " + typeName);
     }

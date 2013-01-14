@@ -15,20 +15,17 @@ import com.lunaticedit.legendofwaffles.services.StageServices;
 
 public final class GameScene implements Scene {
 
-    private boolean _loading;
+    private int _loading;
     private String _currentStage;
     private final Texture _bg1;
     private final Texture _bg2;
+    private boolean _bootstrapped;
 
     public GameScene() {
 
-        _loading = true;
+        _bootstrapped = false;
+        _loading = 0;
         _currentStage = "";
-
-        // Bootstrap the stage - load in stage defaults (starting stage, starting
-        // player location, etc...
-        (new StageServices(new RepositoryFactory(), new StageFactory()))
-                .bootstrap();
 
         _bg1 = new Texture(Constants.GameBG1File);
         _bg2 = new Texture(Constants.GameBG2File);
@@ -36,8 +33,10 @@ public final class GameScene implements Scene {
 
     @Override
     public void render(final Rectangle screenBounds) {
-        if (!_loading)
-        { renderGame(screenBounds); }
+        if (_loading == 2)  { renderGame(screenBounds);
+            // Render the UI
+            renderUI();
+        }
         else { showLoading(); }
     }
 
@@ -46,7 +45,9 @@ public final class GameScene implements Scene {
         // NOTE: On slow devices, it may take a while to load a stage, so we want to make
         // sure we get to render the loading message before actually loading. This is why
         // this check here actually loads the stage.
-        if (_loading) {
+        if (_loading == 0) {
+            _loading = 1;
+        } else if (_loading == 1) {
             loadStage();
 
             // Attach the player's activities to the repository
@@ -55,7 +56,7 @@ public final class GameScene implements Scene {
                     .getPlayer()
                     .attach();
 
-            _loading = false;
+            _loading = 2;
             return;
         }
 
@@ -63,6 +64,17 @@ public final class GameScene implements Scene {
     }
 
     private void loadStage() {
+
+        // Bootstrap the stage - load in stage defaults (starting stage, starting
+        // player location, etc...
+        if (!_bootstrapped) {
+            long secs = System.currentTimeMillis();
+            (new StageServices(new RepositoryFactory(), new StageFactory()))
+                    .bootstrap();
+            while ((System.currentTimeMillis() - secs) < 5000) {
+
+            }
+        }
         // Load the stage
         (new StageServices(new RepositoryFactory(), new StageFactory()))
                 .loadStage(_currentStage);
@@ -125,5 +137,17 @@ public final class GameScene implements Scene {
             yPos += Constants.TileSize;
         }
 
+    }
+
+    private void renderUI() {
+        final TilesetGraphicsGenerator g = (new TilesetGraphicsGenerator());
+        g.drawText(Constants.GameWidth - (Constants.TileSize * 2), 6, "L");
+        int y = Constants.TileSize * 2;
+        final int healthMax = (new RepositoryFactory()).generate().getPlayer().getMaxHealth();
+        final int health = (new RepositoryFactory()).generate().getPlayer().getHealth();
+        for (int i = healthMax; i > 0; i--) {
+            g.drawTile(Constants.GameWidth - 16, y, (i > health) ? 63 : 31);
+            y += (Constants.TileSize / 2);
+        }
     }
 }

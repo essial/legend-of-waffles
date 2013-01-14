@@ -38,11 +38,13 @@ public class Player implements Renderable, Processable, Animation, Attackable {
     private long _attackTime;
     private long _attackedTime;
     private int _attackRange;
+    private boolean _final;
     public WeaponType _weaponType;
 
     public Player() {
         _maxHealth = 4;
         _health = 4;
+        _final = false;
         _coins = 0;
         _staggered = false;
         _attackStrength = 1;
@@ -71,6 +73,10 @@ public class Player implements Renderable, Processable, Animation, Attackable {
 
         final Vector2 position = _body.getPosition();
         return Physics.toPixels(position.y) - 3;
+    }
+
+    public int getMaxHealth() {
+        return _maxHealth;
     }
 
     @Override
@@ -124,9 +130,23 @@ public class Player implements Renderable, Processable, Animation, Attackable {
         handleInput();
 
         final Vector2 vel = _body.getLinearVelocity();
+        if (_staggered) {
+            _animate = false;
+
+            //_body.setLinearVelocity(vel);
+            (new AnimationService(this)).update();
+            (new AttackableServices(this)).update();
+            return;
+        }
+
+
+        if (!(_movingLeft || _movingRight)) {
+            vel.x = 0.0f;
+            _body.setLinearVelocity(vel);
+        }
 
         final float runMode = _running
-                ? 1.5f
+                ? 1.2f
                 : 0.7f;
 
         if (_movingLeft) {
@@ -161,6 +181,11 @@ public class Player implements Renderable, Processable, Animation, Attackable {
     }
 
     private void handleInput() {
+        if (_staggered) {
+            _running = false;
+            _movingLeft = false;
+            _movingRight = false;
+        }
 
         if (Input.getInstance().getKeyState(com.badlogic.gdx.Input.Keys.Q)) {
             System.exit(0);
@@ -232,7 +257,10 @@ public class Player implements Renderable, Processable, Animation, Attackable {
     }
 
     private boolean canJump() {
-        return ((System.currentTimeMillis() - _groundTimeStart) > 20);
+        return true;
+        //final Vector2 vel = _body.getLinearVelocity();
+        //return vel.y == 0.0f;
+        //return ((System.currentTimeMillis() - _groundTimeStart) > 20);
     }
 
     public int getCoins() {
@@ -278,6 +306,11 @@ public class Player implements Renderable, Processable, Animation, Attackable {
     }
 
     @Override
+    public boolean getFinal() {
+        return _final;
+    }
+
+    @Override
     public int getHealth() {
         return _health;
     }
@@ -309,7 +342,18 @@ public class Player implements Renderable, Processable, Animation, Attackable {
 
     @Override
     public void onHitBy(final Attackable source) {
-        // TODO: Hitby Logic
+        final Vector2 vel = _body.getLinearVelocity();
+        if (source.getX() < (getX() + 4)) {
+            // Push right
+            vel.x = 1.25f;
+            vel.y = -1;
+        } else {
+            // Push left
+            vel.x = -1.25f;
+            vel.y = -1;
+        }
+
+        _body.setLinearVelocity(vel);
     }
 
     @Override

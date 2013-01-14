@@ -2,7 +2,9 @@ package com.lunaticedit.legendofwaffles.services;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.lunaticedit.legendofwaffles.contracts.Attackable;
 import com.lunaticedit.legendofwaffles.contracts.NPC;
+import com.lunaticedit.legendofwaffles.enums.Demeanor;
 import com.lunaticedit.legendofwaffles.enums.Facing;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 
@@ -33,17 +35,29 @@ public class NPCServices {
 
     public void processHit(Body body1, Body body2) {
         if ((new RepositoryFactory()).generate().getPlayer().involved(body1, body2)) {
-            // Player hi
+            // Player hit
+            if (_npc.getDemeanor() == Demeanor.Passive) {
+                turnAround();
+                return;
+            }
+            if (!(_npc instanceof Attackable))
+            { return; }
+            (new AttackableServices((Attackable)_npc)).
+                    attack((new RepositoryFactory()).generate().getPlayer());
         } else {
             // Something else hit
-            switch (_npc.getFacingDirection()) {
-                case Left:
-                    _npc.setFacingDirection(Facing.Right);
-                    break;
-                case Right:
-                    _npc.setFacingDirection(Facing.Left);
-                    break;
-            }
+            turnAround();
+        }
+    }
+
+    private void turnAround() {
+        switch (_npc.getFacingDirection()) {
+            case Left:
+                _npc.setFacingDirection(Facing.Right);
+                break;
+            case Right:
+                _npc.setFacingDirection(Facing.Left);
+                break;
         }
     }
 

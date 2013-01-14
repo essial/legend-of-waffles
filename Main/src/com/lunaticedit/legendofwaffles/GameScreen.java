@@ -8,14 +8,14 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.lunaticedit.legendofwaffles.services.ProcessableServices;
-import com.lunaticedit.legendofwaffles.services.RenderServices;
-import com.lunaticedit.legendofwaffles.services.RepositoryServices;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
 import com.lunaticedit.legendofwaffles.factories.SceneFactory;
 import com.lunaticedit.legendofwaffles.factories.SpriteBatchFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.implementations.Input;
+import com.lunaticedit.legendofwaffles.services.ProcessableServices;
+import com.lunaticedit.legendofwaffles.services.RenderServices;
+import com.lunaticedit.legendofwaffles.services.RepositoryServices;
 
 public class GameScreen implements Screen, InputProcessor {
     private Rectangle _viewport;
@@ -86,6 +86,8 @@ public class GameScreen implements Screen, InputProcessor {
         catch (Exception e) { Gdx.app.log("Error", e.getMessage(), e); }
 
     }
+
+
 
     @Override
     public void resize(final int width, final int height) {

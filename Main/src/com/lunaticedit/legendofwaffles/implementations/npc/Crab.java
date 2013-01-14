@@ -29,7 +29,11 @@ public class Crab implements NPC, Renderable, Attackable, Processable, StageObje
     private boolean _animate;
     private int _animationFrame;
     private long _animationTime;
+    private boolean _final;
     private HitWatcher _hitWatcher;
+
+    private int _deadX;
+    private int _deadY;
 
 
     @Override
@@ -70,12 +74,35 @@ public class Crab implements NPC, Renderable, Attackable, Processable, StageObje
     @Override
     public void onHitBy(final Attackable source) {
         // TODO: Hit logic
-        System.err.printf("Attacked!");
+        final Vector2 vel = _body.getLinearVelocity();
+        if (source.getX() < (getX() + 4)) {
+            // Push right
+            vel.x = 1.25f;
+            vel.y = -1;
+        } else {
+            // Push left
+            vel.x = -1.25f;
+            vel.y = -1;
+        }
+
+        _body.setLinearVelocity(vel);
     }
 
     @Override
     public void onKilledBy(final Attackable source) {
-        // TODO: Death logic
+        _deadX = getX();
+        _deadY = getY();
+
+        _final = true;
+        _body.setLinearVelocity(new Vector2(0,0));
+        (new AnimationService(this))
+                .playFinalAnimation();
+
+
+
+        Physics.getInstance().removeHitWatcher(_hitWatcher);
+        Physics.getInstance().removeBody(_body);
+
     }
 
     @Override
@@ -120,6 +147,8 @@ public class Crab implements NPC, Renderable, Attackable, Processable, StageObje
 
     @Override
     public void setVelocity(final Vector2 velocity) {
+        if (_staggered)
+        { return; }
         _animate =  ((Math.abs(velocity.x) > 0) && (Math.abs(velocity.y) > 0));
         _body.setLinearVelocity(velocity);
     }
@@ -139,6 +168,9 @@ public class Crab implements NPC, Renderable, Attackable, Processable, StageObje
         if (_body == null)
         { return 0; }
 
+        if (_final)
+        { return _deadX; }
+
         final Vector2 position = _body.getPosition();
         return Physics.toPixels(position.x) + 5;
     }
@@ -147,6 +179,9 @@ public class Crab implements NPC, Renderable, Attackable, Processable, StageObje
     public int getY() {
         if (_body == null)
         { return 0; }
+
+        if (_final)
+        { return _deadY; }
 
         final Vector2 position = _body.getPosition();
         return Physics.toPixels(position.y) - 3;
@@ -169,20 +204,26 @@ public class Crab implements NPC, Renderable, Attackable, Processable, StageObje
 
     @Override
     public Point getTileOrigin() {
-        return new Point(4 + _animationFrame, _facing == Facing.Right ? 5 : 7);
+        if (!_final) {
+            return new Point(4 + _animationFrame, _facing == Facing.Right ? 5 : 7);
+        } else {
+            return new Point(4 + _animationFrame, 3);
+        }
     }
 
     @Override
     public void process() {
 
-        (new NPCServices(this))
-                .process();
+        if (!_final) {
+            (new NPCServices(this))
+                    .process();
+
+            (new AttackableServices(this)).
+                    update();
+        }
 
         (new AnimationService(this))
                 .update();
-
-        (new AttackableServices(this)).
-                update();
     }
 
     private void initializePhysics() {
@@ -239,6 +280,11 @@ public class Crab implements NPC, Renderable, Attackable, Processable, StageObje
     @Override
     public void setAnimationTime(final long value) {
         _animationTime = value;
+    }
+
+    @Override
+    public boolean getFinal() {
+        return _final;
     }
 
     @Override

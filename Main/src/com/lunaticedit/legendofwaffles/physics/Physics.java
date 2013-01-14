@@ -142,6 +142,7 @@ public final class Physics implements ContactListener {
         fixtureDef.shape = dynamicBox;
         fixtureDef.density = density;
         fixtureDef.friction = friction;
+        fixtureDef.restitution = 0.0f;
         result.createFixture(fixtureDef);
         result.setFixedRotation(true);
         result.setUserData(false);

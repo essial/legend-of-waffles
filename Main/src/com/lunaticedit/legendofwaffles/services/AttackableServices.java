@@ -48,9 +48,12 @@ public class AttackableServices {
             Attackable victim = (Attackable) v;
 
             // Don't process the actor as the victim
-            if (victim == _attackable) {
-                continue;
-            }
+            if (victim == _attackable)
+            { continue; }
+
+            // Don't attack a victim that is currently staggered
+            if (victim.getStaggered())
+            { continue; }
 
             // Determine how close we are to the victim
             final int enemyX = (victim.getX() + 4);

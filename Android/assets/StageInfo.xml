@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <StageManager DefaultStage="AwesomeVillage" PlayerStartX="56" PlayerStartY="132">
-	<Property name="DefaultStage" value="AwesomeVillage" />
-	<Property name="PlayerStartX" value="56" />
-	<Property name="PlayerStartY" value="132" />
+	<Property name="DefaultStage" value="StartingArea" />
+	<Property name="PlayerStartX" value="253" />
+	<Property name="PlayerStartY" value="135" />
 </StageManager>
