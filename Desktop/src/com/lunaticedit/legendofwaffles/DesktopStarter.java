@@ -12,7 +12,6 @@ public class DesktopStarter {
         cfg.width = Constants.GameWidth * 3;
         cfg.height = Constants.GameHeight * 3;
         cfg.vSyncEnabled = true;
-
         cfg.resizable = false;
         new LwjglApplication(new LegendOfWaffles(), cfg);
         //Gdx.app.getGraphics().setDisplayMode(
@@ -20,6 +19,7 @@ public class DesktopStarter {
         //        Gdx.app.getGraphics().getDesktopDisplayMode().height,
         //        true
         //);
+
 
     }
 }

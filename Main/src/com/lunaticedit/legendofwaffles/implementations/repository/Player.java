@@ -275,7 +275,7 @@ public class Player implements Renderable, Processable, Animation, Attackable {
     public int getAnimationSpeed() {
         return (_running)
                 ? 100
-                : 250;
+                : 160;
     }
 
     @Override

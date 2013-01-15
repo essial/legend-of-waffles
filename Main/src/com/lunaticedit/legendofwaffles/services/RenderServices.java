@@ -26,14 +26,14 @@ public final class RenderServices {
                 .generate()
                 .getPlayer();
 
-        final int maxSize = 256 * 8;
+        final int maxSize = 255 * 8;
         final int maxX = maxSize - (Constants.GameWidth);
         final int maxY = maxSize - (Constants.GameHeight);
 
         // Determine the bounds of the screen
         final Rectangle screenBounds = new Rectangle(
-            Math.min(Math.max(0, player.getX() - (Constants.GameWidth / 2)), maxX),
-            Math.min(Math.max(0, (player.getY() - 50) - (Constants.GameHeight / 2)), maxY),
+            Math.min(Math.max(8, player.getX() - (Constants.GameWidth / 2)), maxX),
+            Math.min(Math.max(8, (player.getY() - 50) - (Constants.GameHeight / 2)), maxY),
             Constants.GameWidth,
             Constants.GameHeight
         );

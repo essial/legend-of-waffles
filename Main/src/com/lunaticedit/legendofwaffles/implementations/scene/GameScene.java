@@ -103,8 +103,8 @@ public final class GameScene implements Scene {
 
         final int pixelOffX = ((int)screenBounds.x % Constants.TileSize);
         final int pixelOffY = ((int)screenBounds.y % Constants.TileSize);
-        final int tileOffX = ((int)screenBounds.x - pixelOffX) / Constants.TileSize;
-        final int tileOffY = ((int)screenBounds.y - pixelOffY) / Constants.TileSize;
+        final int tileOffX = (int)screenBounds.x / Constants.TileSize;
+        final int tileOffY = (int)screenBounds.y / Constants.TileSize;
 
         final int tilesPerRow = stage.getMapWidth();
         final int[] tileData = stage.getTileData();
@@ -141,13 +141,42 @@ public final class GameScene implements Scene {
 
     private void renderUI() {
         final TilesetGraphicsGenerator g = (new TilesetGraphicsGenerator());
-        g.drawText(Constants.GameWidth - (Constants.TileSize * 2), 6, "L");
-        int y = Constants.TileSize * 2;
         final int healthMax = (new RepositoryFactory()).generate().getPlayer().getMaxHealth();
         final int health = (new RepositoryFactory()).generate().getPlayer().getHealth();
+
+        drawBorder(Constants.GameWidth - (Constants.TileSize * 3), -4, 2, (healthMax / 2) + 3);
+        g.drawText(Constants.GameWidth - (Constants.TileSize * 2), 6, "L");
+        int y = Constants.TileSize * 2;
+
         for (int i = healthMax; i > 0; i--) {
             g.drawTile(Constants.GameWidth - 16, y, (i > health) ? 63 : 31);
             y += (Constants.TileSize / 2);
         }
+    }
+
+    private void drawBorder(final int xPos, final int yPos, final int tileWidth, final int tileHeight) {
+        final TilesetGraphicsGenerator g = (new TilesetGraphicsGenerator());
+        // Draw Corners
+        g.drawTile(xPos, yPos, 800);
+        g.drawTile(xPos, yPos+(tileHeight * Constants.TileSize), 864);
+        g.drawTile(xPos+(tileWidth*Constants.TileSize), yPos, 802);
+        g.drawTile(xPos+(tileWidth*Constants.TileSize), yPos+(tileHeight * Constants.TileSize), 866);
+
+
+        //Drop top and bottom
+        for (int x = 1; x < tileWidth; x++) {
+            g.drawTile(xPos + (x*Constants.TileSize), yPos, 801);
+            g.drawTile(xPos + (x*Constants.TileSize), yPos + (tileHeight * Constants.TileSize), 865);
+        }
+
+        // Draw left and right
+        for (int y = 1; y < tileHeight; y++) {
+            g.drawTile(xPos,  yPos + (y*Constants.TileSize), 832);
+            g.drawTile(xPos + (tileWidth*Constants.TileSize),  yPos + (y*Constants.TileSize), 834);
+            for (int x = 1; x < tileWidth; x++) {
+                g.drawTile(xPos + (x*Constants.TileSize),  yPos + (y*Constants.TileSize), 833);
+            }
+        }
+
     }
 }
