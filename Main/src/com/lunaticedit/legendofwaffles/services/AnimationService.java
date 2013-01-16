@@ -7,25 +7,17 @@ public class AnimationService {
     public AnimationService(final Animation animation) {
         _animation = animation;
     }
-
     public void update() {
-        if (_animation.getFinal() && _animation.getCurrentFrame() == 2)
-        { return; }
-
+        if (_animation.getFinal() && _animation.getCurrentFrame() == 2) { return; }
         if (!_animation.getShouldAnimate()) {
             _animation.setCurrentFrame(1);
             return;
         }
-
-        if ((System.currentTimeMillis() - _animation.getAnimationTime()) < _animation.getAnimationSpeed())
-        { return; }
-
+        if ((System.currentTimeMillis() - _animation.getAnimationTime()) < _animation.getAnimationSpeed()) { return; }
         _animation.setAnimationTime(System.currentTimeMillis());
-
         final int newFrame = _animation.getCurrentFrame() + 1;
         _animation.setCurrentFrame((newFrame > 3) ? 0 : newFrame);
     }
-
     public void playFinalAnimation() {
         _animation.setCurrentFrame(0);
         _animation.setAnimationTime(System.currentTimeMillis());

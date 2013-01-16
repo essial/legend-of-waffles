@@ -138,7 +138,7 @@ public class Platform implements StageObject, Renderable, HitHandler, Processabl
     }
 
     @Override
-    public void HitOccurred(final Body body1, final Body body2) {
+    public void hitOccurred(final Body body1, final Body body2) {
 
     }
 

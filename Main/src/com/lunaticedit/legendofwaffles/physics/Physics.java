@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public final class Physics implements ContactListener {
-    private static Physics _physics = null;
+    private volatile static Physics _physics = null;
 
     private final World _world;
     private final ArrayList<HitWatcher> _hitWatchers;
@@ -116,7 +116,7 @@ public final class Physics implements ContactListener {
                             (hitWatcher.getBody() != contact.getFixtureB().getBody())
                     ) { continue; }
 
-            hitWatcher.getHitHandler().HitOccurred(
+            hitWatcher.getHitHandler().hitOccurred(
                     contact.getFixtureA().getBody(),
                     contact.getFixtureB().getBody()
             );

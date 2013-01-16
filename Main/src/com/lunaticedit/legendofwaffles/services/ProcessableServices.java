@@ -10,25 +10,11 @@ public class ProcessableServices {
     public ProcessableServices(final RepositoryFactory repositoryFactory) throws Exception {
         _repository = repositoryFactory.generate();
     }
-
-    /**
-     * Processes all processable objects in a repository.
-     */
     public void process() {
-
-        // Process the scene
-        _repository
-                .getScene()
-                .update();
-
-        // Process all processable objects
-        Object[] objs = _repository.getObjects().toArray();
-        for(Object px : objs) {
-            if (!(px instanceof Processable))
-            { continue; }
-            Processable p = (Processable)px;
-            p.process();
+        _repository.getScene().update();
+        for(Object px : _repository.getObjects().toArray()) {
+            if (!(px instanceof Processable)) { continue; }
+            ((Processable)px).process();
         }
-
     }
 }

@@ -69,7 +69,7 @@ public class Coin implements Renderable, HitHandler {
     }
 
     @Override
-    public void HitOccurred(final Body body1, final Body body2) {
+    public void hitOccurred(final Body body1, final Body body2) {
 
         // We only care about contact with the player
         if (!(new RepositoryFactory())

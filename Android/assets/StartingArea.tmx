@@ -11,10 +11,9 @@
    H4sIAAAAAAAAA+3d+44bVx3AcWv9F6hKJIRaXoGrgD/acnsAoCBAiAgKDxBxERAl+wwVUAFKgXdIoLQQHmPT5fIQ3C9PwDmsh5ycznhm7PHYs7/PV/rK2yT2ju35zpkzY09XKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArj8fXq9WH0l+dH3sJRnH+9PyfiD5weSHFrbswKnwhdTOF5NfWlhDn03L+1Lyc8nPL2zZgVNhqf1/My3vt5LfTn5nYcsOnApL7f8HaXl/mPxR8tWFLTtwKnw3tfO95Pdnbuits9Xq3o6/M9/vMt3/Ybr9ZfJX66vHAyKz67G8n3T8+0McG7yTHuu5jT9L/nykvyju3+Zd+wIIyq778l397zs3yGP0l6v75v5f2LhLq+X929Q/orLrvnxX//vMDe5sGZM/k/77/o6dNv2/mLyd/PT66vGaWyAyZctD5tj5799IXpw9mUNfFj+/0XL/ekxveFjNwe8foMk7xTj/ymYbkLmtfeD//Tfj77Y5dt9cum1efWf99jF921g/NWX/mab7V/QP/G+8bnrsmw/3zaW75tVt++73N/vgh6buX/fAFeU4POR4WFf/dzfz88ah+/Bz7IPX/QORyfP0Zr7e1nNfJ3Xnux6Xy8wxFusfuKIc7+txf4nnw4Z83kD/WOp31val7TxdOX6X3j7AsfdDM+TzBvrHUj+zvi/Nubghn3Vd4vmwIZ830D+O9Zn1Y9G2n9+3/i/xuPiP11f7OD9N/iNt4/6Z/Ffy38n/bLZ5+keznlzs+B2SeyPG0VOh2adv9u+vI2X/vz174qONGf3H5eFZ+1g45nsk9WdeTnE9utys6w+q7dMSx/QxlP2/np77Oza3+/R/atcJOrXlWQpt57bLY9yXA8fy+hzZqW0D6u1bvWzX9dhn3rb/en11jOPN5B/Tf793c/unjZmx/c99naC+98d1i8ZTfp6tzfx37xnwWj7b8Ti7bAMO2WF5HL/muh37bN6TMY7pf+7rBPW9P65bNL6dIZ9T/VTyEz1+csv9x/Y/psN3Tfg+z9H/nPsYz6ff8buz8ba9X23nR+e+TlDfsWnXLRq+Dr911j/2N34j+fIWv95z/7H7ANuew5/Tcv9l41+Tf9v49y1zlKHHIuc493GIbUzXvPcrxXuQu373apivtSxbnjs0r2O+zcdPHqyfvk7Q0OPF94rHqr/X2EfX96kzp9b/MeaTfetwPQfua3/INqCv/7HbgK5GyvaHbgPGfn9u2/rVRfmd3j4O0X/XvHfX/mvajgu3OeRYcdf3IofMMTO79D/2PZ3qOOKu7/U+587K47w1Q8f7sduAIf2PmQds24a9efZ2f7Ox7/lO3X8eu+o5drMeH+K6H110zXun6H/MOvPigOf0/ID7Pi72M8p9jkyzH1L+3UVxbYW26xbWn+2qz/3UTHUccex73bWdvVssf9+2oa//Xdvv6n9o+2P2AbY9h9z7O9dXt69v6b9tvW1+/7bXcEz/z3asx/nx8zrXtp5te2670jXu1f3nc35j+q9fw/MeP77uP070seo+5Xszt11MdRxxyHs9ZH+8a5twUaxfzTyqOc+TKa85s+/Y37UNGNN/2eCDarve8Lg4V1XOEZuff59u37e+um38w8byu3p9r+XddfsctHntmnOeF8Vy1uNJ11hWvk/N/kD5XcLmPNzj6rk3jz/kukL53z4slq0e9/Jy1/3nc35D+29r/1aPX1tvP06U/Wp1n3IbMLcNTacNUx1HqB+3pm09PW9x6Dahz6let2YbMLb9fZZ96uc6x+8Y8rvydqgeA6a6rtBUz+983d9+dpf+b6379ysOZeayZbypj2uW40M5XpWfi6n39S7Onh6LL6vHKNsvl6ntdW1b9qHrHk/XZ1ZP+s8/N3++bR7dtc9xKM/Xw9rP7tr/sXzuyI59fUvPuXhz880+d/65+fNt8+h6/nxob41waf2/cGTHvr68Xtb9N3++raNT6qd2af2fH9ljP38eV/2TcdU/GVf9k3Hdpf+XT2C5u9Q/Odxd+z/VbYH+yeFO0f8YD/189E8Od47+53w++mckn1ntb9n/GI/93NvUPyNZ9jun+iePr/6fVv+MZO7w5szt39Q/eRLmDm/M3P8N/ZMnYXPt/NpHPdfaetRxvzEe+7m3qX9yWP/HXsZDqH/yyf9Tq94OlH9+7GU8hPonjf/6Z2T1r3/GtW2/f2z/5VxhV+d+3vonpxn/+x6jT/2Tx1H/+mdc24791+cAhjyG/sllWM+9+9oc4r79z32MQP+M6r69HkP9k9OYW2r7LtBU4/nU3tQ/OZm5pbm/C7SPN/RPTubc3/+ZyilfA/2TPv+nf0ZW//pnXPWvf8ZV//pnXOc+7nYq6p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybgurf//Ajj9WgsAAAQA
   </data>
  </layer>
- <objectgroup name="Data" width="256" height="256" visible="0">
+ <objectgroup name="Data" width="256" height="256">
   <object type="Enemy Crab" gid="38" x="1248" y="1112"/>
   <object type="Enemy Crab" gid="38" x="1416" y="1112"/>
-  <object x="2048" y="1096" height="24"/>
   <object type="Collision Region" x="1776" y="1096" width="272" height="8"/>
   <object type="Collision Region" x="1624" y="1080" width="200" height="24"/>
   <object type="Collision Region" x="1616" y="1088" width="16" height="16"/>
@@ -98,18 +97,13 @@
     <property name="Size" value="3"/>
    </properties>
   </object>
-  <object type="Enemy Crab" gid="38" x="1096" y="1112"/>
   <object type="Enemy Crab" gid="38" x="1032" y="1112"/>
   <object type="Enemy Crab" gid="38" x="1048" y="1024"/>
   <object type="Enemy Crab" gid="38" x="1104" y="1000"/>
   <object type="Enemy Crab" gid="38" x="1248" y="968"/>
   <object type="Enemy Crab" gid="38" x="1512" y="1056"/>
   <object type="Enemy Crab" gid="38" x="136" y="1128"/>
-  <object type="Enemy Crab" gid="38" x="40" y="1128"/>
-  <object type="Enemy Crab" gid="38" x="224" y="1128"/>
-  <object type="Enemy Crab" gid="38" x="416" y="1112"/>
   <object type="Enemy Crab" gid="38" x="456" y="1112"/>
-  <object type="Enemy Crab" gid="38" x="616" y="1040"/>
   <object type="Collision Region" x="696" y="1040" width="8" height="8"/>
   <object type="Collision Region" x="552" y="1040" width="8" height="8"/>
   <object type="Collision Region" x="1280" y="1112" width="8" height="8"/>
@@ -122,7 +116,6 @@
   <object type="Collision Region" x="328" y="1096" width="8" height="8"/>
   <object type="Collision Region" x="296" y="1096" width="8" height="8"/>
   <object type="Enemy Crab" gid="38" x="320" y="1096"/>
-  <object type="Enemy Crab" gid="38" x="656" y="1040"/>
   <object type="Enemy Crab" gid="38" x="584" y="1040"/>
  </objectgroup>
 </map>

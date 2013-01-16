@@ -78,20 +78,11 @@ public final class MainMenu implements Scene {
 
     private void activateMenuOption() {
         switch (_menuSelection) {
-            case 0: {
-                // Start new game
-                startNewGame();
-            } break;
-            case 1: {
-                // Continue existing game
-            } break;
-            case 2: {
-                // Configure
-            } break;
-            case 3: {
-                // Quit
-                Gdx.app.exit();
-            } break;
+            case 0: startNewGame(); break;
+            case 1: return;
+            case 2: return;
+            case 3: Gdx.app.exit();
+            default: return;
         }
     }
 

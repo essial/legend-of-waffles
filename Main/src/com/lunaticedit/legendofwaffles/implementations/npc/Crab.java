@@ -288,7 +288,7 @@ public class Crab implements NPC, Renderable, Attackable, Processable, StageObje
     }
 
     @Override
-    public void HitOccurred(final Body body1, final Body body2) {
+    public void hitOccurred(final Body body1, final Body body2) {
 
         (new NPCServices(this))
                 .processHit(body1, body2);

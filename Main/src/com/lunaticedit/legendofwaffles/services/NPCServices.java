@@ -14,51 +14,32 @@ public class NPCServices {
     public NPCServices(NPC npc) {
         _npc = npc;
     }
-
     public void initialize() {
-
     }
-
     public void process() {
         Vector2 vel = _npc.getVelocity();
         switch(_npc.getFacingDirection()) {
-            case Right: {
-                vel.x = 0.4f;
-            } break;
-            case Left: {
-                vel.x = -0.4f;
-
-            } break;
+            case Right: { vel.x = 0.4f;  } break;
+            case  Left: { vel.x = -0.4f; } break;
         }
         _npc.setVelocity(vel);
     }
-
     public void processHit(Body body1, Body body2) {
         if ((new RepositoryFactory()).generate().getPlayer().involved(body1, body2)) {
-            // Player hit
             if (_npc.getDemeanor() == Demeanor.Passive) {
                 turnAround();
                 return;
             }
-            if (!(_npc instanceof Attackable))
-            { return; }
-            (new AttackableServices((Attackable)_npc)).
-                    attack((new RepositoryFactory()).generate().getPlayer());
+            if (!(_npc instanceof Attackable)) { return; }
+            (new AttackableServices((Attackable)_npc)).attack((new RepositoryFactory()).generate().getPlayer());
         } else {
-            // Something else hit
             turnAround();
         }
     }
-
     private void turnAround() {
         switch (_npc.getFacingDirection()) {
-            case Left:
-                _npc.setFacingDirection(Facing.Right);
-                break;
-            case Right:
-                _npc.setFacingDirection(Facing.Left);
-                break;
+            case  Left: _npc.setFacingDirection(Facing.Right); break;
+            case Right: _npc.setFacingDirection(Facing.Left);  break;
         }
     }
-
 }

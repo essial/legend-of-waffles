@@ -2,63 +2,24 @@ package com.lunaticedit.legendofwaffles.helpers;
 
 import com.lunaticedit.legendofwaffles.enums.RepositoryType;
 
-/**
- * Constant definitions to prevent 'magic numbers' and strings.
- */
 public class Constants {
-    /**
-     * Title of the game, typically shown on the main window.
-     */
     public static final String Title = "Legend of Waffles!";
-
-
-    /**
-     * The file that contains the tileset.
-     */
     public static final String TilesetFile = "tileset.png";
-
     public static final String MainMenuBackgroundFile = "title.png";
     public static final String GameBG1File = "background1.png";
     public static final String GameBG2File = "background2.png";
-
-    /**
-     * Width of the rendering area in pixels.
-     */
     public static final int GameWidth = 280;
-
-    /**
-     * Some platforms consider the title bar in the size metrics, this variable counteracts that.
-     */
     public static final int VerticalReduce = 16;
-
-    /**
-     * Height of the rendering area in pixels.
-     */
     public static final int GameHeight = 210;
-
-    /**
-     * Size of a tile in pixels.
-     */
     public static final int TileSize = 8;
-
-    /**
-     * The type of backend repository to generate.
-     */
     public static final RepositoryType RepositoryType = com.lunaticedit.legendofwaffles.enums.RepositoryType.Live;
-
-    /**
-     * The aspect ratio the game is displayed at. Used for scaling.
-     */
     public static final float AspectRatio = (float)GameWidth/(float)GameHeight;
-
     public static final float PhysicsGravity = 10.0f;
     public static final float PhysicsRenderTime = 1.0f / 60f;
-
     public static final int FontStartTile = 960;
-    public static String MainMenuSong = "superchip.ogg";
-    public static String GameSong = "back2blue.ogg";
-    public static String StageDefaultsFile = "StageInfo.xml";
-
+    public static final String MainMenuSong = "superchip.ogg";
+    public static final String GameSong = "back2blue.ogg";
+    public static final String StageDefaultsFile = "StageInfo.xml";
     public static final int AttackSpacing = 300; // How long between attacks
     public static final int AttackDuration = 150; // How long the attack is 'active'
     public static final int StaggerDuration = 150; // How long something 'staggers'

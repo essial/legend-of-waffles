@@ -1,5 +1,6 @@
 package com.lunaticedit.legendofwaffles.implementations.repository;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.lunaticedit.legendofwaffles.contracts.Animation;
@@ -187,9 +188,7 @@ public class Player implements Renderable, Processable, Animation, Attackable {
             _movingRight = false;
         }
 
-        if (Input.getInstance().getKeyState(com.badlogic.gdx.Input.Keys.Q)) {
-            System.exit(0);
-        }
+        if (Input.getInstance().getKeyState(com.badlogic.gdx.Input.Keys.Q)) { Gdx.app.exit(); }
 
         // Running
         if (Input.getInstance().getKeyState(com.badlogic.gdx.Input.Keys.Z)) {

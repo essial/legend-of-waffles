@@ -55,7 +55,7 @@ public class MusicPlayer {
 
 
 
-    public void stopSong() {
+    public synchronized void stopSong() {
         if (_music == null) {
             return;
         }

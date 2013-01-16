@@ -95,7 +95,7 @@ public class ItemBox implements StageObject, Renderable, Processable, HitHandler
     }
 
     @Override
-    public void HitOccurred(final Body body1, final Body body2) {
+    public void hitOccurred(final Body body1, final Body body2) {
 
         if (_opened)
         { return; }
@@ -133,8 +133,8 @@ public class ItemBox implements StageObject, Renderable, Processable, HitHandler
         BodyDef groundBodyDef = new BodyDef();
         // TODO: Could convert to using direct X/Y position instead of converting back and forth like this...
         groundBodyDef.position.set(
-                (meterSize * (float)(_posX / Constants.TileSize)) - halfTile,
-                (meterSize * (float)(_posY / Constants.TileSize)) - halfTile);
+                (meterSize * (_posX / Constants.TileSize)) - halfTile,
+                (meterSize * (_posY / Constants.TileSize)) - halfTile);
         final Body _body = Physics.getInstance().createBody(groundBodyDef);
         PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(halfTile, halfTile);
