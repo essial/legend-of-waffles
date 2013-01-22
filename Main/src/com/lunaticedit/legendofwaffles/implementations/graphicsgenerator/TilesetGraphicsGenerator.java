@@ -75,6 +75,7 @@ public class TilesetGraphicsGenerator implements GraphicsGenerator {
     @Override
     public void drawText(final int x, final int y, final String text) {
         for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == ' ') { continue; }
             drawTile(x + (i * Constants.TileSize), y, Constants.FontStartTile + (text.charAt(i) - '!'));
         }
     }

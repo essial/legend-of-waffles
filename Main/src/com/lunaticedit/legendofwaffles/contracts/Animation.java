@@ -1,12 +1,5 @@
 package com.lunaticedit.legendofwaffles.contracts;
 
-/**
- * Created with IntelliJ IDEA.
- * User: timsarbin
- * Date: 1/6/13
- * Time: 3:52 PM
- * To change this template use File | Settings | File Templates.
- */
 public interface Animation {
     public int getAnimationSpeed();
     public boolean getShouldAnimate();

@@ -28,6 +28,7 @@ public class Platform implements StageObject, Renderable, HitHandler, Processabl
     private HitWatcher _hitWatcher;
     private Body _body;
     private boolean _reverse;
+    private int _type;
 
     @Override
     public void processXML(final Element element) {
@@ -38,7 +39,7 @@ public class Platform implements StageObject, Renderable, HitHandler, Processabl
                 .add(this);
 
         _reverse = false;
-        _posX = (Integer.parseInt(element.getAttribute("x")));
+        _posX = (Integer.parseInt(element.getAttribute("x"))) - 10;
         _posY = (Integer.parseInt(element.getAttribute("y")));
 
         final NodeList childNodes = element.getChildNodes();
@@ -78,6 +79,8 @@ public class Platform implements StageObject, Renderable, HitHandler, Processabl
                 _orientation = (value.equals("Horizontal")
                         ? Orientation.Horizontal
                         : Orientation.Vertical);
+            } else if (cnn.equals("Type")) {
+                _type = Integer.parseInt(value);
             }
         }
     }
@@ -134,7 +137,7 @@ public class Platform implements StageObject, Renderable, HitHandler, Processabl
 
     @Override
     public Point getTileOrigin() {
-        return new Point(19, 2);
+        return (_type == 0) ? new Point(19, 2) : new Point(11, 3);
     }
 
     @Override

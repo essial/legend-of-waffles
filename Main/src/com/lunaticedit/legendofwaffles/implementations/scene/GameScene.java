@@ -14,7 +14,6 @@ import com.lunaticedit.legendofwaffles.physics.Physics;
 import com.lunaticedit.legendofwaffles.services.StageServices;
 
 public final class GameScene implements Scene {
-
     private int _loading;
     private String _currentStage;
     private final Texture _bg1;
@@ -30,16 +29,14 @@ public final class GameScene implements Scene {
         _bg1 = new Texture(Constants.GameBG1File);
         _bg2 = new Texture(Constants.GameBG2File);
     }
-
     @Override
     public void render(final Rectangle screenBounds) {
-        if (_loading == 2)  { renderGame(screenBounds);
-            // Render the UI
+        if (_loading == 2)  {
+            renderGame(screenBounds);
             renderUI();
         }
         else { showLoading(); }
     }
-
     @Override
     public void update() {
         // NOTE: On slow devices, it may take a while to load a stage, so we want to make
@@ -62,7 +59,6 @@ public final class GameScene implements Scene {
 
         Physics.getInstance().step();
     }
-
     private void loadStage() {
 
         // Bootstrap the stage - load in stage defaults (starting stage, starting
@@ -79,7 +75,6 @@ public final class GameScene implements Scene {
         (new StageServices(new RepositoryFactory(), new StageFactory()))
                 .loadStage(_currentStage);
     }
-
     private void showLoading() {
         final TilesetGraphicsGenerator g = (new TilesetGraphicsGenerator());
         final int centerX = (Constants.GameWidth / 2);
@@ -90,7 +85,6 @@ public final class GameScene implements Scene {
                 "LOADING PLZ WAIT"
         );
     }
-
     private void renderGame(final Rectangle screenBounds) {
         final SpriteBatch s = new SpriteBatchFactory().generate();
         final int bgX = (int)(screenBounds.x % 1600) / 4;
@@ -138,13 +132,12 @@ public final class GameScene implements Scene {
         }
 
     }
-
     private void renderUI() {
         final TilesetGraphicsGenerator g = (new TilesetGraphicsGenerator());
         final int healthMax = (new RepositoryFactory()).generate().getPlayer().getMaxHealth();
         final int health = (new RepositoryFactory()).generate().getPlayer().getHealth();
 
-        drawBorder(Constants.GameWidth - (Constants.TileSize * 3), -4, 2, (healthMax / 2) + 3);
+        drawBorder(Constants.GameWidth - (Constants.TileSize * 3), -2, 2, (healthMax / 2) + 3);
         g.drawText(Constants.GameWidth - (Constants.TileSize * 2), 6, "L");
         int y = Constants.TileSize * 2;
 
@@ -152,8 +145,12 @@ public final class GameScene implements Scene {
             g.drawTile(Constants.GameWidth - 16, y, (i > health) ? 63 : 31);
             y += (Constants.TileSize / 2);
         }
-    }
 
+        drawBorder(Constants.GameWidth - (Constants.TileSize * 14), -2, 11, 2);
+        g.drawText(Constants.GameWidth - (Constants.TileSize * 13), 6, "COINS");
+        int coins = (new RepositoryFactory()).generate().getPlayer().getCoins();
+        g.drawText(Constants.GameWidth - (Constants.TileSize * 7), 6, String.valueOf(coins));
+    }
     private void drawBorder(final int xPos, final int yPos, final int tileWidth, final int tileHeight) {
         final TilesetGraphicsGenerator g = (new TilesetGraphicsGenerator());
         // Draw Corners

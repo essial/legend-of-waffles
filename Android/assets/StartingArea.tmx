@@ -8,7 +8,7 @@
  </tileset>
  <layer name="Tiles" width="256" height="256">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+3d+44bVx3AcWv9F6hKJIRaXoGrgD/acnsAoCBAiAgKDxBxERAl+wwVUAFKgXdIoLQQHmPT5fIQ3C9PwDmsh5ycznhm7PHYs7/PV/rK2yT2ju35zpkzY09XKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArj8fXq9WH0l+dH3sJRnH+9PyfiD5weSHFrbswKnwhdTOF5NfWlhDn03L+1Lyc8nPL2zZgVNhqf1/My3vt5LfTn5nYcsOnApL7f8HaXl/mPxR8tWFLTtwKnw3tfO95Pdnbuits9Xq3o6/M9/vMt3/Ybr9ZfJX66vHAyKz67G8n3T8+0McG7yTHuu5jT9L/nykvyju3+Zd+wIIyq778l397zs3yGP0l6v75v5f2LhLq+X929Q/orLrvnxX//vMDe5sGZM/k/77/o6dNv2/mLyd/PT66vGaWyAyZctD5tj5799IXpw9mUNfFj+/0XL/ekxveFjNwe8foMk7xTj/ymYbkLmtfeD//Tfj77Y5dt9cum1efWf99jF921g/NWX/mab7V/QP/G+8bnrsmw/3zaW75tVt++73N/vgh6buX/fAFeU4POR4WFf/dzfz88ah+/Bz7IPX/QORyfP0Zr7e1nNfJ3Xnux6Xy8wxFusfuKIc7+txf4nnw4Z83kD/WOp31val7TxdOX6X3j7AsfdDM+TzBvrHUj+zvi/Nubghn3Vd4vmwIZ830D+O9Zn1Y9G2n9+3/i/xuPiP11f7OD9N/iNt4/6Z/Ffy38n/bLZ5+keznlzs+B2SeyPG0VOh2adv9u+vI2X/vz174qONGf3H5eFZ+1g45nsk9WdeTnE9utys6w+q7dMSx/QxlP2/np77Oza3+/R/atcJOrXlWQpt57bLY9yXA8fy+hzZqW0D6u1bvWzX9dhn3rb/en11jOPN5B/Tf793c/unjZmx/c99naC+98d1i8ZTfp6tzfx37xnwWj7b8Ti7bAMO2WF5HL/muh37bN6TMY7pf+7rBPW9P65bNL6dIZ9T/VTyEz1+csv9x/Y/psN3Tfg+z9H/nPsYz6ff8buz8ba9X23nR+e+TlDfsWnXLRq+Dr911j/2N34j+fIWv95z/7H7ANuew5/Tcv9l41+Tf9v49y1zlKHHIuc493GIbUzXvPcrxXuQu373apivtSxbnjs0r2O+zcdPHqyfvk7Q0OPF94rHqr/X2EfX96kzp9b/MeaTfetwPQfua3/INqCv/7HbgK5GyvaHbgPGfn9u2/rVRfmd3j4O0X/XvHfX/mvajgu3OeRYcdf3IofMMTO79D/2PZ3qOOKu7/U+587K47w1Q8f7sduAIf2PmQds24a9efZ2f7Ox7/lO3X8eu+o5drMeH+K6H110zXun6H/MOvPigOf0/ID7Pi72M8p9jkyzH1L+3UVxbYW26xbWn+2qz/3UTHUccex73bWdvVssf9+2oa//Xdvv6n9o+2P2AbY9h9z7O9dXt69v6b9tvW1+/7bXcEz/z3asx/nx8zrXtp5te2670jXu1f3nc35j+q9fw/MeP77uP070seo+5Xszt11MdRxxyHs9ZH+8a5twUaxfzTyqOc+TKa85s+/Y37UNGNN/2eCDarve8Lg4V1XOEZuff59u37e+um38w8byu3p9r+XddfsctHntmnOeF8Vy1uNJ11hWvk/N/kD5XcLmPNzj6rk3jz/kukL53z4slq0e9/Jy1/3nc35D+29r/1aPX1tvP06U/Wp1n3IbMLcNTacNUx1HqB+3pm09PW9x6Dahz6let2YbMLb9fZZ96uc6x+8Y8rvydqgeA6a6rtBUz+983d9+dpf+b6379ysOZeayZbypj2uW40M5XpWfi6n39S7Onh6LL6vHKNsvl6ntdW1b9qHrHk/XZ1ZP+s8/N3++bR7dtc9xKM/Xw9rP7tr/sXzuyI59fUvPuXhz880+d/65+fNt8+h6/nxob41waf2/cGTHvr68Xtb9N3++raNT6qd2af2fH9ljP38eV/2TcdU/GVf9k3Hdpf+XT2C5u9Q/Odxd+z/VbYH+yeFO0f8YD/189E8Od47+53w++mckn1ntb9n/GI/93NvUPyNZ9jun+iePr/6fVv+MZO7w5szt39Q/eRLmDm/M3P8N/ZMnYXPt/NpHPdfaetRxvzEe+7m3qX9yWP/HXsZDqH/yyf9Tq94OlH9+7GU8hPonjf/6Z2T1r3/GtW2/f2z/5VxhV+d+3vonpxn/+x6jT/2Tx1H/+mdc24791+cAhjyG/sllWM+9+9oc4r79z32MQP+M6r69HkP9k9OYW2r7LtBU4/nU3tQ/OZm5pbm/C7SPN/RPTubc3/+ZyilfA/2TPv+nf0ZW//pnXPWvf8ZV//pnXOc+7nYq6p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybjqn4yr/sm46p+Mq/7JuOqfjKv+ybgurf//Ajj9WgsAAAQA
+   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38mw+5waL2W5P5vlP9llffknt2/M4aWz/L4cfCX42+H8e2tzv5Xlv+114vvJP7l9Yw5vHrRnPN7js+j5Ifdm+Sd3wt8N651kmc3r+JOG9fq47X2vU/5Zkn8c1tsl/03rdnXb+16n/JPTfJ+eWc1/+rddrb8vq/yT3cr/bW/jOpR/Uv7lnyW7ivwvOrZwG6Ztln9ydflfZGxh8rngL+c8n17/46Pl3kf+yYOuKv/vBN8Lvl/z+G7D8r+G0zGC/4mTBQ/PHzuY5/8m+SdXaur/r8t/1/7//BxS9Y3gm8G3suX43Ednv/eR8l9dL/4G6NvB9wfnxi4/MFpsDHPdWGT5Z6nmbeK28r+LTfn/UMjsBcEPjw4ux+duaMj/hcGPBC8aTn8LNL3+90bLjUeUf3J+XvP8d61bN73eVSGzVwc/Mzq4HJ+7tyH/1wSvDV43nP4WaNreB+SfXNrqvUBt+V/kPsHoy8PpPQR3hMzeGfzK6OByXf0/3XNwV/CrwbuH098CTa95U5b/y8Jql1e8omafrhzIP1l13r1Aef6X9dGQ2cfib8iNDi7H577TUP4/HjwWPD48+FvgqfxPvxN+S1jt1oq31Wz77fJPHnDT9/+sytT+T+eBh8K2PlzxEfknW930/T+r8uch978IPldpB6R2RtO9yvJPNpvnP5/jY1fG/87rs5yn/JPN5rnKy9N9yX9TPUD+yWbbcrUv+Vf+k/3dl/l7YnbjeMB3Buc/Rt+d+d5szGA1/6luIP/kQfdl/p5Jh76+5CXKf/JQWVf/bxr/c0T+yUNlXf6bxv9Uxwym6xn/ln9yb63Lf9P4nydq/u/HRvJP7qsp/136AOryf6P8k3trzO5blT7/2Nf/dPi3Z4LPDg8un6zJ/33yT+6tk1m/ft09fl3qBd+Vf3Jvncz69WMf39vD6XxjcS6xNM9Y0xxjcflkyP7P5J/cW2N2Ux/fhaPmecXmzTcm/+R+Oqn0610zap5XbN58Y/JPbs9l5+5P/Xp3jZrnFZs335j8k7tnn/t54pi/x0fN84o1LV8xkH9yF+2T/1tm7f+mecWalm+Tf3Inbct8dQ7PfMxfVx+Rf3Inze/nya/xr2pOUvknd8/8fp58Hl/5Jw+ved0+n8e3Lf9N9Qb5J3fftnI7n5O0rk+waf5/+Sd322Xr9U31Bvknd984x+BgtH7ln9w94xyDnxitX/knd8+Yyy+M1q/8k7vnJn9jML2n/JO74SZ/YzC9p/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnuW/7/C9zZdoQAAAQA
   </data>
  </layer>
  <objectgroup name="Data" width="256" height="256">
@@ -22,28 +22,23 @@
   <object type="Collision Region" x="1392" y="1112" width="216" height="16"/>
   <object type="Collision Region" x="2040" y="0" width="8" height="1104"/>
   <object type="Collision Region" x="1472" y="1056" width="112" height="16"/>
-  <object type="Collision Region" x="1472" y="1064" width="32" height="56"/>
-  <object type="Collision Region" x="1304" y="1112" width="96" height="96"/>
-  <object type="Collision Region" x="1264" y="1240" width="208" height="48"/>
+  <object type="Collision Region" x="1472" y="1056" width="8" height="64"/>
+  <object type="Collision Region" x="1304" y="1112" width="96" height="88"/>
+  <object type="Collision Region" x="1264" y="1240" width="416" height="48"/>
   <object type="Collision Region" x="1392" y="1200" width="8" height="48"/>
-  <object type="Collision Region" x="1464" y="1280" width="8" height="40"/>
-  <object type="Collision Region" x="1464" y="1312" width="80" height="8"/>
-  <object type="Collision Region" x="1536" y="1312" width="8" height="40"/>
   <object type="Collision Region" x="1264" y="1344" width="280" height="48"/>
-  <object type="Collision Region" x="1200" y="1384" width="72" height="8"/>
+  <object type="Collision Region" x="1200" y="1384" width="72" height="16"/>
   <object type="Collision Region" x="1176" y="1344" width="32" height="48"/>
   <object type="Collision Region" x="1152" y="1240" width="56" height="80"/>
   <object type="Collision Region" x="1176" y="1312" width="8" height="40"/>
   <object type="Collision Region" x="1152" y="1200" width="8" height="48"/>
-  <object type="Collision Region" x="1152" y="1120" width="136" height="88"/>
+  <object type="Collision Region" x="1152" y="1112" width="128" height="88"/>
   <object type="Collision Region" x="1152" y="1104" width="80" height="16"/>
   <object type="Collision Region" x="1152" y="1096" width="48" height="16"/>
   <object type="Collision Region" x="1160" y="1088" width="40" height="16"/>
   <object type="Collision Region" x="1264" y="1280" width="80" height="40"/>
   <object type="Collision Region" x="1256" y="1304" width="16" height="8"/>
   <object type="Collision Region" x="1200" y="1304" width="16" height="8"/>
-  <object type="Collision Region" x="1224" y="1328" width="24" height="8"/>
-  <object type="Collision Region" x="1232" y="1280" width="8" height="8"/>
   <object type="Collision Region" x="1200" y="1256" width="24" height="8"/>
   <object type="Collision Region" x="1248" y="1256" width="24" height="8"/>
   <object type="Collision Region" x="1000" y="1048" width="24" height="8"/>
@@ -53,7 +48,7 @@
   <object type="Collision Region" x="1136" y="976" width="16" height="16"/>
   <object type="Collision Region" x="1144" y="968" width="152" height="16"/>
   <object type="Collision Region" x="1216" y="976" width="40" height="16"/>
-  <object type="Collision Region" x="264" y="1112" width="1024" height="16"/>
+  <object type="Collision Region" x="264" y="1112" width="888" height="16"/>
   <object type="Collision Region" x="1320" y="968" width="8" height="8"/>
   <object type="Collision Region" x="1360" y="968" width="16" height="8"/>
   <object type="Collision Region" x="1400" y="952" width="16" height="8"/>
@@ -95,6 +90,7 @@
     <property name="Orientation" value="Vertical"/>
     <property name="Position" value="0"/>
     <property name="Size" value="3"/>
+    <property name="Type" value="0"/>
    </properties>
   </object>
   <object type="Enemy Crab" gid="38" x="1032" y="1112"/>
@@ -106,8 +102,7 @@
   <object type="Enemy Crab" gid="38" x="456" y="1112"/>
   <object type="Collision Region" x="696" y="1040" width="8" height="8"/>
   <object type="Collision Region" x="552" y="1040" width="8" height="8"/>
-  <object type="Collision Region" x="1280" y="1112" width="8" height="8"/>
-  <object type="Collision Region" x="1472" y="1056" width="8" height="8"/>
+  <object type="Collision Region" x="1272" y="1112" width="8" height="8"/>
   <object type="Collision Region" x="1288" y="968" width="8" height="8"/>
   <object type="Collision Region" x="1144" y="968" width="8" height="8"/>
   <object type="Collision Region" x="1088" y="1000" width="8" height="8"/>
@@ -117,5 +112,74 @@
   <object type="Collision Region" x="296" y="1096" width="8" height="8"/>
   <object type="Enemy Crab" gid="38" x="320" y="1096"/>
   <object type="Enemy Crab" gid="38" x="584" y="1040"/>
+  <object type="Platform" gid="41" x="1448" y="1088">
+   <properties>
+    <property name="Distance" value="2"/>
+    <property name="Orientation" value="Vertical"/>
+    <property name="Position" value="0"/>
+    <property name="Size" value="3"/>
+    <property name="Type" value="0"/>
+   </properties>
+  </object>
+  <object type="Collision Region" x="1576" y="1344" width="40" height="8"/>
+  <object type="Collision Region" x="1672" y="1280" width="8" height="304"/>
+  <object type="Collision Region" x="1576" y="1416" width="40" height="8"/>
+  <object type="Collision Region" x="1552" y="1496" width="120" height="8"/>
+  <object type="Collision Region" x="1592" y="1536" width="24" height="8"/>
+  <object type="Platform" gid="41" x="1640" y="1408">
+   <properties>
+    <property name="Distance" value="9"/>
+    <property name="Orientation" value="Vertical"/>
+    <property name="Position" value="0"/>
+    <property name="Size" value="3"/>
+    <property name="Type" value="1"/>
+   </properties>
+  </object>
+  <object type="Platform" gid="41" x="1520" y="1528">
+   <properties>
+    <property name="Distance" value="3"/>
+    <property name="Orientation" value="Vertical"/>
+    <property name="Position" value="0"/>
+    <property name="Size" value="3"/>
+    <property name="Type" value="1"/>
+   </properties>
+  </object>
+  <object type="Collision Region" x="1480" y="1520" width="24" height="8"/>
+  <object type="Collision Region" x="1464" y="1544" width="8" height="40"/>
+  <object type="Collision Region" x="1464" y="1568" width="216" height="16"/>
+  <object type="Collision Region" x="1536" y="1344" width="8" height="136"/>
+  <object type="Collision Region" x="1416" y="1472" width="128" height="8"/>
+  <object type="Enemy Crab" gid="38" x="1376" y="1344"/>
+  <object type="Collision Region" x="1264" y="1344" width="8" height="8"/>
+  <object type="Collision Region" x="1552" y="1496" width="8" height="8"/>
+  <object type="Collision Region" x="1608" y="1416" width="8" height="8"/>
+  <object type="Collision Region" x="1576" y="1416" width="8" height="8"/>
+  <object type="Enemy Crab" gid="38" x="1480" y="1344"/>
+  <object type="Enemy Crab" gid="38" x="1592" y="1416"/>
+  <object type="Enemy Crab" gid="38" x="1640" y="1496"/>
+  <object type="Collision Region" x="1536" y="1456" width="24" height="8"/>
+  <object type="Platform" gid="41" x="1224" y="1360">
+   <properties>
+    <property name="Distance" value="15"/>
+    <property name="Orientation" value="Vertical"/>
+    <property name="Position" value="0"/>
+    <property name="Size" value="3"/>
+    <property name="Type" value="1"/>
+   </properties>
+  </object>
+  <object type="Platform" gid="41" x="1280" y="1224">
+   <properties>
+    <property name="Distance" value="11"/>
+    <property name="Orientation" value="Vertical"/>
+    <property name="Position" value="0"/>
+    <property name="Size" value="3"/>
+    <property name="Type" value="1"/>
+   </properties>
+  </object>
+  <object type="Collision Region" x="1152" y="1192" width="112" height="16"/>
+  <object type="Collision Region" x="1320" y="1192" width="80" height="16"/>
+  <object type="Fire Outlet" gid="635" x="1560" y="1344"/>
+  <object type="Fire Outlet" gid="635" x="1480" y="1096"/>
+  <object type="Door" gid="617" x="1528" y="1336"/>
  </objectgroup>
 </map>

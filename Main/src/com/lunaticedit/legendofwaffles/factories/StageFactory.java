@@ -6,7 +6,8 @@ import com.lunaticedit.legendofwaffles.implementations.stage.StandardStage;
 public class StageFactory {
     private static Stage _stage;
 
-    public Stage generate()
-    { if (_stage == null) { _stage = new StandardStage(); } return _stage; }
-
+    public Stage generate() {
+        if (_stage == null) { _stage = new StandardStage(); }
+        return _stage;
+    }
 }

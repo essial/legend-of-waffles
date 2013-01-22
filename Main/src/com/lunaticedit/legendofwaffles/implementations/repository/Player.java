@@ -9,9 +9,11 @@ import com.lunaticedit.legendofwaffles.contracts.Attackable;
 import com.lunaticedit.legendofwaffles.contracts.Processable;
 import com.lunaticedit.legendofwaffles.contracts.Renderable;
 import com.lunaticedit.legendofwaffles.enums.Facing;
+import com.lunaticedit.legendofwaffles.enums.SceneType;
 import com.lunaticedit.legendofwaffles.enums.SoundEffect;
 import com.lunaticedit.legendofwaffles.enums.WeaponType;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
+import com.lunaticedit.legendofwaffles.factories.SceneFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.helpers.Point;
 import com.lunaticedit.legendofwaffles.implementations.Input;
@@ -167,7 +169,12 @@ public final class Player
         else                              { vel.x = -1.25f; vel.y = -1; }
         _body.setLinearVelocity(vel);
     }
-    public void onKilledBy(final Attackable source) {}
+    public void onKilledBy(final Attackable source) {
+        (new RepositoryFactory())
+                .generate()
+                .setScene(new SceneFactory()
+                        .generateScene(SceneType.Death));
+    }
     public void onVictimKilled(final Attackable source) {}
     public Facing getFacingDirection()
     { return _faceLeft ? Facing.Left : Facing.Right; }
