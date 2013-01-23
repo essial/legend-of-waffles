@@ -180,4 +180,8 @@ public final class Player
     { return _faceLeft ? Facing.Left : Facing.Right; }
     public int getAttackRange()
     { return _attackRange; }
+    public void increaseMaxHealth() {
+        _maxHealth++;
+        _health++;
+    }
 }

@@ -8,7 +8,7 @@
  </tileset>
  <layer name="Tiles" width="256" height="256">
   <data encoding="base64" compression="gzip">
-   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X/knd8+Yyy+M1q/8k7vnJn9jML2n/JO74SZ/YzC9p/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnKP1mu8k+Wq/yT5Sr/ZLnuW/7/C9zZdoQAAAQA
+   H4sIAAAAAAAAA+2dybMkRR3Hu6pPegMew+BBuIosAjMDgxpwFR+DwAAOaOCVkEWYDbzglXAJl4GZ0QPeGcWhQUMMl79g4LFECIbL1V2YBfCCv6Q7fb+XnVmZtXd1fz4Rn+h+3V31qpdv5VJZWaMRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwPLzqfFodLV4zbjvLSnHJ2V7LxevEK8c2LYDLApfkOzcJt4+sAx9XrZ3XbxF3DOwbQdYFIaa/6/K9j4gPig+NLBtB1gUhpr/b8r2fkv8tvidgW07wKLwNcnOI+KjHWfolXw0OlTxf5rlNmT5E3L7E/Gn4+n6AFaZqn153wu8vo2+wf2yrotmPi0eLekxtbzPg9QFYEWpWpcP5b9u28CU0XudZU3+r5tZJat6eZ/kH1aVqnX5UP7rtA32F5TJN8vfRyrm1Ob/evF+8XPj6frsLcAqo7Oc0sY2z58UT+WbbegNdf+kZ3m3TLeccNrgR1rI5H5Vzj852wcY7if7AP/Pvy1/i9rYsba0r129fzxfpheV9U2j82+wuX+S/AN8WF7bPMbaw7G2dKhd7au7H5nVwdvGzT+5B5iiy+GU/rBQ/g/O2ufW1Dp8F3VwN/8Aq4xpp9v2ui/PsZy4Oa/aL2fooiwm/wBTdHnvlvtDPB6WMt6A/MNQz1mri+84nS6/tfe30PfeNinjDcg/DHXMel3ssbiUsa5DPB6WMt6A/ENfY9b7wlfPj/3+h9gv/t3xtI7zffFfso/7t/gf8W3xndk+j/yD/Z2cqngOyaES5eiiYOv0tn6/jOj8v5Bv+uJMA/lfXU7k/rKwzHkk7piXRfwdbcx+6886+6chlull0Pl/Tt77R2a3dfK/aPMELdr2DAXfsW3dx72RWJa7x8gWbR/g7t/cbVvWvk+zb//ZeNrH8bz4uvz9idnt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
   </data>
  </layer>
  <objectgroup name="Data" width="256" height="256">
@@ -128,7 +128,7 @@
   <object type="Collision Region" x="1592" y="1536" width="24" height="8"/>
   <object type="Platform" gid="41" x="1640" y="1408">
    <properties>
-    <property name="Distance" value="9"/>
+    <property name="Distance" value="10"/>
     <property name="Orientation" value="Vertical"/>
     <property name="Position" value="0"/>
     <property name="Size" value="3"/>
@@ -169,7 +169,7 @@
   </object>
   <object type="Platform" gid="41" x="1280" y="1224">
    <properties>
-    <property name="Distance" value="11"/>
+    <property name="Distance" value="12"/>
     <property name="Orientation" value="Vertical"/>
     <property name="Position" value="0"/>
     <property name="Size" value="3"/>
@@ -181,5 +181,78 @@
   <object type="Fire Outlet" gid="635" x="1560" y="1344"/>
   <object type="Fire Outlet" gid="635" x="1480" y="1096"/>
   <object type="Door" gid="617" x="1528" y="1336"/>
+  <object type="Door" gid="617" x="1416" y="1536"/>
+  <object type="Collision Region" x="1328" y="1544" width="144" height="16"/>
+  <object type="Collision Region" x="1416" y="1472" width="8" height="56"/>
+  <object type="Collision Region" x="1296" y="1520" width="128" height="8"/>
+  <object type="Collision Region" x="1296" y="1520" width="8" height="80"/>
+  <object type="Collision Region" x="1216" y="1616" width="88" height="16"/>
+  <object type="Collision Region" x="1328" y="1544" width="8" height="208"/>
+  <object type="Collision Region" x="1296" y="1616" width="8" height="200"/>
+  <object type="Collision Region" x="1216" y="1768" width="88" height="16"/>
+  <object type="Collision Region" x="1272" y="1808" width="32" height="8"/>
+  <object type="Collision Region" x="1328" y="1768" width="8" height="48"/>
+  <object type="Collision Region" x="1328" y="1808" width="32" height="8"/>
+  <object type="Collision Region" x="1352" y="1808" width="8" height="80"/>
+  <object type="Collision Region" x="1272" y="1808" width="8" height="80"/>
+  <object type="Collision Region" x="1272" y="1872" width="88" height="16"/>
+  <object type="Collision Region" x="1328" y="1768" width="96" height="16"/>
+  <object type="Collision Region" x="1328" y="1744" width="96" height="8"/>
+  <object type="Collision Region" x="1416" y="1680" width="8" height="72"/>
+  <object type="Collision Region" x="1416" y="1768" width="8" height="264"/>
+  <object type="Collision Region" x="1432" y="1744" width="24" height="8"/>
+  <object type="Collision Region" x="1456" y="1720" width="16" height="8"/>
+  <object type="Collision Region" x="1416" y="1768" width="80" height="8"/>
+  <object type="Collision Region" x="1496" y="1760" width="8" height="40"/>
+  <object type="Collision Region" x="1560" y="1760" width="8" height="40"/>
+  <object type="Collision Region" x="1496" y="1792" width="72" height="8"/>
+  <object type="Collision Region" x="1496" y="1720" width="88" height="8"/>
+  <object type="Collision Region" x="1584" y="1744" width="24" height="8"/>
+  <object type="Collision Region" x="1608" y="1776" width="24" height="8"/>
+  <object type="Collision Region" x="1552" y="1856" width="24" height="8"/>
+  <object type="Collision Region" x="1528" y="1888" width="24" height="8"/>
+  <object type="Collision Region" x="1584" y="1984" width="24" height="8"/>
+  <object type="Collision Region" x="1416" y="1968" width="120" height="8"/>
+  <object type="Collision Region" x="1416" y="1680" width="232" height="8"/>
+  <object type="Collision Region" x="1640" y="1680" width="8" height="224"/>
+  <object type="Collision Region" x="1640" y="1896" width="32" height="8"/>
+  <object type="Collision Region" x="1664" y="1896" width="8" height="32"/>
+  <object type="Collision Region" x="1664" y="1920" width="32" height="8"/>
+  <object type="Collision Region" x="1688" y="1920" width="8" height="64"/>
+  <object type="Collision Region" x="1624" y="1968" width="72" height="16"/>
+  <object type="Collision Region" x="1664" y="1976" width="8" height="56"/>
+  <object type="Collision Region" x="1416" y="2016" width="256" height="16"/>
+  <object type="Door" gid="617" x="1392" y="1760"/>
+  <object type="Enemy Crab" gid="38" x="1552" y="1720"/>
+  <object type="Enemy Crab" gid="38" x="1472" y="1968"/>
+  <object type="Collision Region" x="1528" y="1968" width="8" height="8"/>
+  <object type="Platform" gid="41" x="1584" y="1832">
+   <properties>
+    <property name="Distance" value="4"/>
+    <property name="Orientation" value="Vertical"/>
+    <property name="Position" value="0"/>
+    <property name="Size" value="3"/>
+    <property name="Type" value="1"/>
+   </properties>
+  </object>
+  <object type="Platform" gid="41" x="1552" y="1968">
+   <properties>
+    <property name="Distance" value="7"/>
+    <property name="Orientation" value="Vertical"/>
+    <property name="Position" value="0"/>
+    <property name="Size" value="3"/>
+    <property name="Type" value="1"/>
+   </properties>
+  </object>
+  <object type="Platform" gid="41" x="1304" y="1832">
+   <properties>
+    <property name="Distance" value="36"/>
+    <property name="Orientation" value="Vertical"/>
+    <property name="Position" value="0"/>
+    <property name="Size" value="3"/>
+    <property name="Type" value="1"/>
+   </properties>
+  </object>
+  <object type="Life Up" gid="929" x="1672" y="1968"/>
  </objectgroup>
 </map>
