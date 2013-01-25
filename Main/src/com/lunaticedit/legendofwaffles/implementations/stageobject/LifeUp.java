@@ -19,14 +19,14 @@ public class LifeUp implements StageObject, Renderable, Processable {
     @Override
     public void processXML(final Element element) {
         _posX = (Integer.parseInt(element.getAttribute("x")));
-        _posY = (Integer.parseInt(element.getAttribute("y")));
+        _posY = (Integer.parseInt(element.getAttribute("y"))) - 8;
         (new RepositoryFactory()).generate().getObjects().add(this);
     }
     @Override
     public void process() {
         final Rectangle thisRect = new Rectangle(_posX, _posY, Constants.TileSize, Constants.TileSize);
         final Player player = (new RepositoryFactory()).generate().getPlayer();
-        final Rectangle playerRect = new Rectangle(player.getX() - 4, player.getY() - 8, 8, 16);
+        final Rectangle playerRect = new Rectangle(player.getX() - 4, player.getY() - 4, 8, 16);
         if (!Intersector.overlapRectangles(thisRect, playerRect)) {
             return;
         }
