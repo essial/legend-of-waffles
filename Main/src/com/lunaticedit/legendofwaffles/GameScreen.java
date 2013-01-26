@@ -20,7 +20,7 @@ import com.lunaticedit.legendofwaffles.services.RepositoryServices;
 public class GameScreen implements Screen, InputProcessor {
     private Rectangle _viewport;
     private final Camera _camera;
-    private final FrameBuffer _fbo;
+    //private final FrameBuffer _fbo;
     private long _lastRendered;
     private long _lastUpdated;
 
@@ -30,7 +30,7 @@ public class GameScreen implements Screen, InputProcessor {
         Gdx.input.setCatchBackKey(true);
         Gdx.input.setCatchMenuKey(true);
         _camera = new OrthographicCamera(Constants.GameWidth, Constants.GameHeight);
-        _fbo = new FrameBuffer(Pixmap.Format.RGB565, Constants.GameWidth, Constants.GameHeight, false);
+        //_fbo = new FrameBuffer(Pixmap.Format.RGB565, Constants.GameWidth, Constants.GameHeight, false);
         Gdx.gl.glTexParameterf(GL20.GL_TEXTURE_2D, GL20.GL_TEXTURE_MAG_FILTER, GL20.GL_NEAREST);
         Gdx.gl.glTexParameterf(GL20.GL_TEXTURE_2D, GL20.GL_TEXTURE_MIN_FILTER, GL20.GL_NEAREST);
         Gdx.gl.glTexParameterf(GL20.GL_TEXTURE_2D, GL20.GL_TEXTURE_WRAP_S, GL20.GL_CLAMP_TO_EDGE);
@@ -52,6 +52,17 @@ public class GameScreen implements Screen, InputProcessor {
     private void drawGfx() {
         if (_viewport == null) { return; }
         _camera.update();
+        Gdx.gl.glViewport((int) _viewport.x, (int) _viewport.y, (int) _viewport.width, (int) _viewport.height);
+        (new SpriteBatchFactory()).generate().setProjectionMatrix(_camera.combined);
+        Gdx.gl.glClearColor(0.3f, 0.5f, 0.9f, 1.0f);
+        Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+        (new SpriteBatchFactory()).generate().begin();
+        try { (new RenderServices(new RepositoryFactory())).render(); }
+        catch (Exception e) { Gdx.app.log("Error", e.getMessage(), e); }
+        (new SpriteBatchFactory()).generate().end();
+        /*
+        if (_viewport == null) { return; }
+        _camera.update();
         final SpriteBatch batch = (new SpriteBatchFactory()).generate();
         Gdx.gl.glViewport((int) _viewport.x, (int) _viewport.y, (int) _viewport.width, (int) _viewport.height);
         batch.setProjectionMatrix(_camera.combined);
@@ -70,6 +81,7 @@ public class GameScreen implements Screen, InputProcessor {
         batch.draw(_fbo.getColorBufferTexture(), -Constants.GameWidth / 2, -Constants.GameHeight / 2,
                 Constants.GameWidth, Constants.GameHeight, 0, 0, Constants.GameWidth, Constants.GameHeight, false, true);
         batch.end();
+        */
     }
     private void processUpdates() {
         try { (new ProcessableServices(new RepositoryFactory())).process(); }
