@@ -16,6 +16,8 @@ public class Constants {
     public static final float AspectRatio = (float)GameWidth/(float)GameHeight;
     public static final float PhysicsGravity = 10.0f;
     public static final float PhysicsRenderTime = 1.0f / 60f;
+    public static final long RenderSlice = 1000 / 60;
+    public static final long ProcessSlice = 1000 / 60;
     public static final int FontStartTile = 960;
     public static final String MainMenuSong = "superchip.ogg";
     public static final String GameSong = "back2blue.ogg";

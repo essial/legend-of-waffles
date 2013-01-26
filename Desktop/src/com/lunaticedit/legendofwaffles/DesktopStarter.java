@@ -25,7 +25,7 @@ public class DesktopStarter {
             cfg.fullscreen = true;
         }
         cfg.vSyncEnabled = true;
-        cfg.useCPUSynch = true;
+        cfg.useCPUSynch = false;
         cfg.resizable = false;
         new LwjglApplication(new LegendOfWaffles(), cfg);
     }
