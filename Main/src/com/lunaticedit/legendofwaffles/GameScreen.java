@@ -3,9 +3,10 @@ package com.lunaticedit.legendofwaffles;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.FrameBuffer;
+import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.lunaticedit.legendofwaffles.factories.RepositoryFactory;
@@ -40,6 +41,7 @@ public class GameScreen implements Screen, InputProcessor {
     }
     @Override
     public void render(final float delta) {
+        (new RepositoryFactory()).generate().getUI().process();
         drawGfx();
 
         long updateDiff = System.currentTimeMillis() - _lastUpdated;
@@ -59,6 +61,7 @@ public class GameScreen implements Screen, InputProcessor {
         (new SpriteBatchFactory()).generate().begin();
         try { (new RenderServices(new RepositoryFactory())).render(); }
         catch (Exception e) { Gdx.app.log("Error", e.getMessage(), e); }
+        (new RepositoryFactory()).generate().getUI().render();
         (new SpriteBatchFactory()).generate().end();
         /*
         if (_viewport == null) { return; }
@@ -84,28 +87,10 @@ public class GameScreen implements Screen, InputProcessor {
         */
     }
     private void processUpdates() {
+        if ((new RepositoryFactory()).generate().getUI().isModal()) { return; }
         try { (new ProcessableServices(new RepositoryFactory())).process(); }
         catch (Exception e) { Gdx.app.log("Error", e.getMessage(), e); }
     }
-    /*
-
-        public void render(final float delta) {
-        if (_viewport == null) { return; }
-        _camera.update();
-        Gdx.gl.glViewport((int) _viewport.x, (int) _viewport.y, (int) _viewport.width, (int) _viewport.height);
-        (new SpriteBatchFactory()).generate().setProjectionMatrix(_camera.combined);
-        Gdx.gl.glClearColor(0.3f, 0.5f, 0.9f, 1.0f);
-        Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-        (new SpriteBatchFactory()).generate().begin();
-        try { (new RenderServices(new RepositoryFactory())).render(); }
-        catch (Exception e) { Gdx.app.log("Error", e.getMessage(), e); }
-        (new SpriteBatchFactory()).generate().end();
-        try { (new ProcessableServices(new RepositoryFactory())).process(); }
-        catch (Exception e) { Gdx.app.log("Error", e.getMessage(), e); }
-    }
-
-     */
-
 
     @Override
     public void resize(final int width, final int height) {

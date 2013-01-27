@@ -15,8 +15,8 @@ public class DesktopStarter {
         final boolean fullscreen = false; // TODO: From settings
 
         if (!fullscreen) {
-            cfg.width = Constants.GameWidth * 3;
-            cfg.height = Constants.GameHeight * 3;
+            cfg.width = Constants.GameWidth * 2;
+            cfg.height = Constants.GameHeight * 2;
         } else {
             Toolkit toolkit = Toolkit.getDefaultToolkit();
             Dimension deskRes = toolkit.getScreenSize();

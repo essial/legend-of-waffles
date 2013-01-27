@@ -2,6 +2,7 @@ package com.lunaticedit.legendofwaffles.implementations.repository;
 
 import com.lunaticedit.legendofwaffles.contracts.Repository;
 import com.lunaticedit.legendofwaffles.contracts.Scene;
+import com.lunaticedit.legendofwaffles.implementations.ui.UI;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -12,11 +13,13 @@ public final class LiveRepository implements Repository {
     private final ArrayList<Object> _removalQueue;
     private Scene _scene;
     private Player _player;
+    private UI _ui;
 
     public LiveRepository() {
         _objects = new LinkedList<Object>();
         _removalQueue = new ArrayList<Object>();
         _player = new Player();
+        _ui = new UI();
     }
 
     @Override
@@ -49,6 +52,11 @@ public final class LiveRepository implements Repository {
     @Override
     public Player getPlayer() {
         return _player;
+    }
+
+    @Override
+    public UI getUI() {
+        return _ui;
     }
 
 
