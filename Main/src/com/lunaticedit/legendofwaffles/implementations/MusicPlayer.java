@@ -43,6 +43,8 @@ public class MusicPlayer {
     }
 
     public synchronized void playSong(final String ResourceName) {
+        return;
+        /*
         if (_music != null) {
             _music.stop();
             _music.dispose();
@@ -50,7 +52,7 @@ public class MusicPlayer {
         }
         _music = Gdx.audio.newMusic(Gdx.files.internal(ResourceName));
         _music.play();
-        _music.setLooping(true);
+        _music.setLooping(true);*/
     }
 
 
