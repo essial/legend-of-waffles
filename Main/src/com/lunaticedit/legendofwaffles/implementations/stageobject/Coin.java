@@ -27,9 +27,7 @@ public class Coin implements Renderable, HitHandler {
                 .getObjects()
                 .add(this);
 
-        _body = Physics
-                .getInstance()
-                .createCircularBody(x, y, force);
+        _body = Physics.getInstance().createCircularBody(x, y, force);
 
         _hitWatcher = new HitWatcher(this, _body);
         Physics.getInstance().registerHitWacher(_hitWatcher);

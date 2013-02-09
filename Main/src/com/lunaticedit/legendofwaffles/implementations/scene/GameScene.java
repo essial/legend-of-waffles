@@ -10,6 +10,7 @@ import com.lunaticedit.legendofwaffles.factories.SpriteBatchFactory;
 import com.lunaticedit.legendofwaffles.factories.StageFactory;
 import com.lunaticedit.legendofwaffles.helpers.Constants;
 import com.lunaticedit.legendofwaffles.implementations.graphicsgenerator.TilesetGraphicsGenerator;
+import com.lunaticedit.legendofwaffles.implementations.ui.UI;
 import com.lunaticedit.legendofwaffles.physics.Physics;
 import com.lunaticedit.legendofwaffles.services.StageServices;
 
@@ -19,9 +20,10 @@ public final class GameScene implements Scene {
     private final Texture _bg1;
     private final Texture _bg2;
     private boolean _bootstrapped;
+    private final UI _ui;
 
     public GameScene() {
-
+        _ui = (new RepositoryFactory()).generate().getUI();
         _bootstrapped = false;
         _loading = 0;
         _currentStage = "";

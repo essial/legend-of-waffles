@@ -24,7 +24,7 @@ public final class MainMenu implements Scene {
         MusicPlayer.getInstance().stopSong();
         MusicPlayer.getInstance().playSong(Constants.MainMenuSong);
         _ui.reset();
-        _ui.createInputView((new String[]{"NEW GAME", "CONTINUE", "CONFIG", "QUIT"}), 16, 112);
+        _ui.createInputView((new String[]{"NEW GAME", "CONTINUE", "GAME EDITOR", "CONFIG", "QUIT"}), 16, 112);
     }
 
     @Override
@@ -58,21 +58,20 @@ public final class MainMenu implements Scene {
             switch (_ui.getModalResult()) {
                 case 0: startNewGame(); break;
                 case 1: startContinue(); break;
-                case 2: startConfig(); break;
-                case 3: Gdx.app.exit(); break;
+                case 2: startGameEditor(); break;
+                case 3: startConfig(); break;
+                case 4: Gdx.app.exit(); break;
             }
         }
     }
+    private void startGameEditor() {
+        (new RepositoryFactory()).generate().setScene(new SceneFactory().generateScene(SceneType.GameEditor));
+    }
     private void startConfig() {
-
     }
     private void startContinue() {
-
     }
     private void startNewGame() {
-        (new RepositoryFactory())
-                .generate()
-                .setScene(new SceneFactory()
-                        .generateScene(SceneType.Game));
+        (new RepositoryFactory()).generate().setScene(new SceneFactory().generateScene(SceneType.Game));
     }
 }
